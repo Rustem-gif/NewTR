@@ -1,0 +1,35 @@
+{
+  "cookies": [
+    {
+      "name": "_ga",
+      "value": "GA1.1.1638860388.1762209206",
+      "domain": ".tombriches1.com",
+      "path": "/",
+      "expires": 1796769205.655053,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_8NVCR9P91P",
+      "value": "GS2.1.s1762209205$o1$g0$t1762209206$j59$l0$h1945108473",
+      "domain": ".tombriches1.com",
+      "path": "/",
+      "expires": 1796769206.446212,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://tombriches1.com",
+      "localStorage": [
+        {
+          "name": "lang",
+          "value": "en"
+        }
+      ]
+    }
+  ]
+}
