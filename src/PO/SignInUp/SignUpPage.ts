@@ -1,5 +1,5 @@
 import { Locator } from '@playwright/test';
-import BasePage from '../../components/Base/BasePage';
+import BasePage from '../../Base/BasePage';
 
 export default class SignUpPage extends BasePage {
   private emailInput: Locator = this.page.locator('#email-input');

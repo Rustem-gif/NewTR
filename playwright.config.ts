@@ -13,7 +13,7 @@ export default defineConfig({
   reporter: 'html',
 
   use: {
-    baseURL: 'https://tombriches1.com',
+    baseURL: 'https://tombriches1.com/en',
 
     trace: 'on',
     video: 'retain-on-failure',
@@ -21,9 +21,18 @@ export default defineConfig({
   },
 
   projects: [
+    { name: 'setup', use: { ...devices['Desktop Chrome'] } },
     {
-      name: 'chromium',
+      name: 'NoSetUp',
+      testMatch: '**/*.nosetup.spec.ts',
       use: { ...devices['Desktop Chrome'] },
+    },
+
+    {
+      name: 'YesSetUp',
+      use: { ...devices['Desktop Chrome'], storageState: 'tests/setup/storageState.json' },
+      testMatch: '**/*.setup.spec.ts',
+      dependencies: ['setup'],
     },
   ],
 });
