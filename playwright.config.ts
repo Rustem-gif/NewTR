@@ -21,18 +21,18 @@ export default defineConfig({
   },
 
   projects: [
-    { name: 'setup', use: { ...devices['Desktop Chrome'] } },
-    {
-      name: 'NoSetUp',
-      testMatch: '**/*.nosetup.spec.ts',
-      use: { ...devices['Desktop Chrome'] },
-    },
-
+    { name: 'setup', testMatch: '**/setup/*.spec.ts', use: { ...devices['Desktop Chrome'] } },
     {
       name: 'YesSetUp',
       use: { ...devices['Desktop Chrome'], storageState: 'tests/setup/storageState.json' },
       testMatch: '**/*.setup.spec.ts',
       dependencies: ['setup'],
+    },
+
+    {
+      name: 'NoSetUp',
+      testMatch: '**/*.nosetup.spec.ts',
+      use: { ...devices['Desktop Chrome'] },
     },
   ],
 });

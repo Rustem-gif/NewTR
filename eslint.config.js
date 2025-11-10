@@ -35,6 +35,14 @@ module.exports = [
       'no-var': 'error',
     },
   },
+
+  {
+    files: ['**/expectedTextResults/**/*.ts'],
+    rules: {
+      'no-irregular-whitespace': 'off',
+    },
+  },
+
   {
     files: ['**/*.ts'],
     languageOptions: {
@@ -64,25 +72,35 @@ module.exports = [
       'prettier/prettier': 'error',
 
       // TypeScript specific rules
-      '@typescript-eslint/no-unused-vars': 'error',
+      '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/explicit-function-return-type': 'warn',
       '@typescript-eslint/no-explicit-any': 'warn',
 
       // General ESLint rules
-      'no-console': 'warn',
+      'no-unused-vars': 'off',
+      'no-console': 'off',
       'no-debugger': 'error',
       'no-duplicate-imports': 'error',
-      'no-unused-expressions': 'error',
       'prefer-const': 'error',
       'no-var': 'error',
+
+      'no-irregular-whitespace': [
+        'error',
+        {
+          skipStrings: true,
+          skipComments: true,
+          skipRegExps: true,
+          skipTemplates: true,
+        },
+      ],
 
       // Playwright specific rules
       'playwright/missing-playwright-await': 'error',
       'playwright/no-conditional-in-test': 'warn',
       'playwright/no-nested-step': 'warn',
       'playwright/no-skipped-test': 'warn',
-      'playwright/no-useless-await': 'error',
-      'playwright/prefer-web-first-assertions': 'error',
+      'playwright/no-useless-await': 'off',
+      'playwright/prefer-web-first-assertions': 'off',
       'playwright/prefer-to-have-length': 'error',
       'playwright/prefer-to-be': 'error',
     },
