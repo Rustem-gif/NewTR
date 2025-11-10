@@ -1,21 +1,71 @@
 {
   "cookies": [
     {
+      "name": "token",
+      "value": "93b608e918af5d77b26782d070b0774e",
+      "domain": "tombriches1.com",
+      "path": "/api/",
+      "expires": 1763411608.869452,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Strict"
+    },
+    {
       "name": "_ga",
-      "value": "GA1.1.1638860388.1762209206",
+      "value": "GA1.1.1578420494.1762806807",
       "domain": ".tombriches1.com",
       "path": "/",
-      "expires": 1796769205.655053,
+      "expires": 1797366807.38065,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_fbp",
+      "value": "fb.1.1762806807678.760695803147860928",
+      "domain": ".tombriches1.com",
+      "path": "/",
+      "expires": 1770582809,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "_ga_8NVCR9P91P",
-      "value": "GS2.1.s1762209205$o1$g0$t1762209206$j59$l0$h1945108473",
+      "value": "GS2.1.s1762806807$o1$g0$t1762806808$j59$l0$h819717126",
       "domain": ".tombriches1.com",
       "path": "/",
-      "expires": 1796769206.446212,
+      "expires": 1797366808.480181,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "intercom-id-z3x0st3y",
+      "value": "211f5022-b453-42b0-b659-1fbc97d22fc5",
+      "domain": ".tombriches1.com",
+      "path": "/",
+      "expires": 1786136809,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "intercom-session-z3x0st3y",
+      "value": "",
+      "domain": ".tombriches1.com",
+      "path": "/",
+      "expires": 1763411609,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "intercom-device-id-z3x0st3y",
+      "value": "e9e98797-b9a8-46fd-b647-7456eb4f1fc7",
+      "domain": ".tombriches1.com",
+      "path": "/",
+      "expires": 1786136809,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -26,8 +76,36 @@
       "origin": "https://tombriches1.com",
       "localStorage": [
         {
+          "name": "wid",
+          "value": "d44i9a5dc6efriqcfol0"
+        },
+        {
           "name": "lang",
           "value": "en"
+        },
+        {
+          "name": "lastExternalReferrerTime",
+          "value": "1762806807673"
+        },
+        {
+          "name": "topicsLastReferenceTime",
+          "value": "1762806809020"
+        },
+        {
+          "name": "lastExternalReferrer",
+          "value": "empty"
+        },
+        {
+          "name": "ur",
+          "value": "de"
+        },
+        {
+          "name": "intercom.intercom-state-z3x0st3y",
+          "value": "{\"app\":{\"openConfig\":{\"unifiedStyling\":true,\"openTo\":\"home\",\"spaces\":[{\"type\":\"home\",\"label\":\"Home\",\"navigationLabel\":\"Home\",\"badge\":null},{\"type\":\"messages\",\"label\":\"Messages\",\"navigationLabel\":\"Messages\",\"badge\":null},{\"type\":\"tickets\",\"label\":\"Tickets\",\"navigationLabel\":\"Tickets\",\"badge\":null},{\"type\":\"help\",\"label\":\"Help\",\"navigationLabel\":\"Help\",\"badge\":null}],\"userHasReceivedChecklists\":false,\"userHasLiveNewsfeed\":false,\"userHasTickets\":false},\"selfServeSuggestionsMatch\":false,\"name\":\"Tomb Riches\",\"features\":{\"anonymousInboundMessages\":true,\"googleAnalytics\":false,\"hubspotInstalled\":false,\"inboundMessages\":true,\"marketoEnrichmentInstalled\":false,\"googleAnalytics4Integration\":true},\"helpCenterSiteUrl\":\"https://intercom-help.eu/tomb-riches\",\"inboundConversationsDisabled\":false,\"isDeveloperWorkspace\":false,\"customGoogleAnalyticsTrackerId\":null},\"launcher\":{\"isLauncherEnabled\":true},\"launcherDiscoveryMode\":{\"hasDiscoveredLauncher\":false},\"launcherSettings\":{\"alignment\":\"right\",\"color\":\"#2bb68d\",\"colorDark\":\"#2bb68d\",\"hasRequiredFeatures\":true,\"horizontalPadding\":20,\"instantBootEnabled\":true,\"launcherLogoUrl\":\"https://downloads.intercomcdn.eu/i/o/8081/3952ac122347e4b2784edb4f/62868bcb0ea6a88d122e96c007c30da3.png\",\"launcherLogoDarkUrl\":null,\"secondaryColor\":\"#050000\",\"secondaryColorDark\":\"#050000\",\"showLauncher\":true,\"themeMode\":\"light\",\"updatedAt\":1762732824,\"verticalPadding\":90,\"isLoading\":false},\"user\":{\"role\":\"visitor\",\"locale\":\"en\",\"hasConversations\":false},\"message\":{},\"conversations\":{\"byId\":{}},\"openOnBoot\":{\"type\":null,\"metadata\":{},\"lastOpenAtTimestamp\":1762806809544},\"operator\":{\"lastComposerEvent\":0},\"router\":{\"isInitialized\":false,\"navigationQueue\":[]}}"
+        },
+        {
+          "name": "tib",
+          "value": "{\"d44i9a0pj5fgsg7skqeg\":[]}"
         }
       ]
     }
