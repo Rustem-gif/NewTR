@@ -1,5 +1,4 @@
-export const SELF_EXCLUSION_TEXT = `
-SELF-EXCLUSION POLICY
+export const SELF_EXCLUSION_TEXT = `SELF-EXCLUSION POLICY
 1. General
 1.1. Self-exclusion means voluntarily suspending access to gambling services for a defined period. The self-exclusion can be temporary or permanent.
 1.2. By requesting self-exclusion, the Client agrees to these terms and conditions, which become effective immediately upon confirmation via email to the Client’s registered email address. This email will indicate the start and end dates of the self-exclusion period.
@@ -69,4 +68,5 @@ Record the exclusion in its internal register
 5.1. SUVYD B.V. is licensed by the Curaçao Gaming Control Board. At this time, there is no centralized self-exclusion platform provided by the licensing authority.
 5.2. All self-exclusion requests must be processed directly via tombriches1.com. Clients who wish to raise additional concerns may contact the Curaçao Gaming Control Board, but technical enforcement of self-exclusion remains under SUVYD B.V.'s responsibility.
 Contact Information:
-Email: support@tombriches1.comWebsite: www.tombriches1.com`;
+Email: support@tombriches1.comWebsite: www.tombriches1.com
+`;

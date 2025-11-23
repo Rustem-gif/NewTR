@@ -3,7 +3,7 @@ import TombRiches from '../../src/PageManager/TombRiches';
 
 setup.describe('Setup', () => {
   let tombRiches: TombRiches;
-  setup('Base setup', async ({ page }) => {
+  setup('Base setup', { tag: '@smoke' }, async ({ page }) => {
     tombRiches = new TombRiches(page);
     await tombRiches.navTo('loginPage');
     await tombRiches.signInPage.signIn('email', tombRiches.users.MAIN_USER!);

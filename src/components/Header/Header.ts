@@ -8,8 +8,8 @@ export default class Header extends BaseComponent {
     '.search-results-container .game-tile-overlay'
   );
   private searchPlayButton: (parent: Locator) => Locator = parent => parent.locator('.play-button');
-  public searchGameName: (parent: Locator) => Locator = parent => parent.locator('.game-name');
-  // public cashboxButton: Locator = this.page.locator('#header-cashbox-button');
+  readonly searchGameName: (parent: Locator) => Locator = parent => parent.locator('.game-name');
+  readonly cashboxButton: Locator = this.page.locator('#header-cashbox-button');
 
   async searchForGame(gameName: string): Promise<GamePage> {
     await this.searchInput.fill(gameName);
