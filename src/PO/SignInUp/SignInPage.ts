@@ -1,12 +1,16 @@
 import BasePage from '../../Base/BasePage';
 
 export default class SignInPage extends BasePage {
-  private emailInput = this.page.locator('#email-input');
-  private phoneButton = this.page.getByRole('button', { name: 'Phone' });
-  private phoneNumberInput = this.page.locator('#phone-input');
-  private passwordInput = this.page.locator('input[autocomplete="current-password"]');
-  private signInButton = this.page.locator('#login-submit-button');
-  private forgotPasswordButton = this.page.locator('#forgot-password-button');
+  private emailInput = this.page.locator('#email-input').describe('Email input');
+  private phoneButton = this.page.getByRole('button', { name: 'Phone' }).describe('Phone button');
+  private phoneNumberInput = this.page.locator('#phone-input').describe('Phone number input');
+  private passwordInput = this.page
+    .locator('input[autocomplete="current-password"]')
+    .describe('Password input');
+  private signInButton = this.page.locator('#login-submit-button').describe('Sign in button');
+  private forgotPasswordButton = this.page
+    .locator('#forgot-password-button')
+    .describe('Forgot password button');
 
   async signIn(
     mode: 'email' | 'phone',

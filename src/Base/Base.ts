@@ -6,18 +6,27 @@ type NavigationMappingType = {
   loginPage: string;
   mainPage: string;
   playerProfile: string;
-  cashboxPage: string;
+  cashboxPageDeposit: string;
+  cashboxPageWithdraw: string;
   licensePage: string;
+  walletPage: string;
+  vipPage: string;
+  wheelPage: string;
+  promoPage: string;
+  myBonusesPage: string;
+  allProvidersPage: string;
 };
 
 type NavigationKeys = keyof NavigationMappingType;
 
 export default class Base {
-  public acceptCookiesButton: Locator;
+  readonly acceptCookiesButton: Locator;
 
-  constructor(public page: Page) {
+  constructor(readonly page: Page) {
     this.page = page;
-    this.acceptCookiesButton = this.page.locator('.accept-cookies-button');
+    this.acceptCookiesButton = this.page
+      .locator('.accept-cookies-button')
+      .describe('Accept Cookies Button');
     this.setupLocatorHandlers();
   }
 
@@ -26,8 +35,15 @@ export default class Base {
     loginPage: '/login',
     mainPage: '/',
     playerProfile: '/profile/balance',
-    cashboxPage: '/cashbox/deposit',
+    cashboxPageDeposit: '/cashbox/deposit',
+    cashboxPageWithdraw: '/cashbox/withdraw',
+    walletPage: '/profile/balance',
     licensePage: 'https://cert.gcb.cw/certificate',
+    vipPage: '/vip',
+    wheelPage: '/lucky-prize/wheel',
+    promoPage: '/campaigns',
+    myBonusesPage: '/profile/activity/my-bonuses',
+    allProvidersPage: '/providers',
   };
 
   private async setupLocatorHandlers(): Promise<void> {
@@ -55,5 +71,16 @@ export default class Base {
 
   async returnLink(url: NavigationKeys): Promise<string> {
     return playwrightConfig.use?.baseURL + this.navigationMapping[url];
+  }
+
+  async getUrl(page: NavigationKeys): Promise<string> {
+    return playwrightConfig.use?.baseURL + this.navigationMapping[page];
+  }
+
+  async scrollPageDown(): Promise<void> {
+    await this.page.evaluate(() => {
+      // eslint-disable-next-line no-undef
+      window.scrollBy(0, window.innerHeight);
+    });
   }
 }

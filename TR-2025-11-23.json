@@ -1,0 +1,1498 @@
+{
+  "suites": [
+    {
+      "id": 37,
+      "title": "TR (Apuesta)",
+      "description": null,
+      "preconditions": null,
+      "suites": [
+        {
+          "id": 68,
+          "title": "Registration(draft)",
+          "description": null,
+          "preconditions": null,
+          "suites": [],
+          "cases": [
+            {
+              "id": 405,
+              "title": "Registration with existing email",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "undefined",
+              "severity": "normal",
+              "type": "other",
+              "behavior": "undefined",
+              "automation": "to-be-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Enter an **already registered** email address",
+                  "expected_result": "",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 2,
+                  "action": "Enter valid password",
+                  "expected_result": "",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 3,
+                  "action": "Click create account button",
+                  "expected_result": "Error message is displayed: *\"Email has already taken\"*",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 451,
+              "title": "Check registration (with email)",
+              "description": null,
+              "preconditions": "The user is not logged in. Registration form page is opened.[https://tombriches1.com/en/register?ref_code=d3t44hgpj5fls7070f80&sub_id5=test](https://tombriches1.com/en/register?ref_code=d3t44hgpj5fls7070f80&sub_id5=test)",
+              "postconditions": null,
+              "priority": "high",
+              "severity": "normal",
+              "type": "functional",
+              "behavior": "undefined",
+              "automation": "to-be-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Check if registration with email is selected.",
+                  "expected_result": "Registration with email is selected on the registration method button. The email input field is present.\n![image.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/771bc3793c52179a50d2e90177b309f74429de5f/image.png)",
+                  "data": "[https://tombriches1.com/en/register?ref_code=d3t44hgpj5fls7070f80&sub_id5=test](https://tombriches1.com/en/register?ref_code=d3t44hgpj5fls7070f80&sub_id5=test)",
+                  "steps": []
+                },
+                {
+                  "position": 2,
+                  "action": "Fill in all mandatory fields with valid data.",
+                  "expected_result": "The data is accepted.\n![image.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/6dc06c2cb47630396c5351bf25e1fa7cf240a535/image.png)",
+                  "data": "Mandatory fields: Email, Password, First name, Last name, DOB, Country, Region, City, Home Adress, Zip-code, 18+/T&C checkbox",
+                  "steps": []
+                },
+                {
+                  "position": 3,
+                  "action": "Click on the \"Register\" button",
+                  "expected_result": "User is successfully created, and the cashier page is opened. ([https://tombriches1.com/en/cashbox/deposit](https://tombriches1.com/en/cashbox/deposit))\n![image.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/d0d12b613d6ed67c0787fbd79a56c180fa189126/image.png)",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 4,
+                  "action": "Open Players profile.\n![image.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/f68550439efc5aee19a7d9419154c4612fde5373/image.png)",
+                  "expected_result": "All data entered during registration is saved in the account info.",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            }
+          ]
+        },
+        {
+          "id": 67,
+          "title": "Log in",
+          "description": null,
+          "preconditions": null,
+          "suites": [],
+          "cases": [
+            {
+              "id": 380,
+              "title": "Check \"Sign in\" functionality via email",
+              "description": null,
+              "preconditions": "* User is registered\n* User knows valid email and password\n* User is on the login page",
+              "postconditions": null,
+              "priority": "high",
+              "severity": "normal",
+              "type": "other",
+              "behavior": "undefined",
+              "automation": "to-be-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Open the login page",
+                  "expected_result": "Login page is displayed",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 2,
+                  "action": "Enter a valid email address in the email field",
+                  "expected_result": "Email is entered correctly",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 3,
+                  "action": "Enter a valid password in the password field",
+                  "expected_result": "Password is entered correctly",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 4,
+                  "action": "Click the \"Sign in\" button",
+                  "expected_result": "User is successfully logged in and redirected to the home page",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 409,
+              "title": "Check \"Sign in\" functionality via mobile number",
+              "description": null,
+              "preconditions": "* User is registered\n* User is on the login page",
+              "postconditions": null,
+              "priority": "high",
+              "severity": "normal",
+              "type": "other",
+              "behavior": "undefined",
+              "automation": "to-be-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Open the login page",
+                  "expected_result": "Login page is displayed",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 2,
+                  "action": "Enter a valid mobile number in the field",
+                  "expected_result": "Number is entered correctly",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 3,
+                  "action": "Enter a valid password in the password field",
+                  "expected_result": "Password is entered correctly",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 4,
+                  "action": "Click the \"Sign in\" button",
+                  "expected_result": "User is successfully logged in and redirected to the home page",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            }
+          ]
+        },
+        {
+          "id": 71,
+          "title": "Games",
+          "description": null,
+          "preconditions": null,
+          "suites": [],
+          "cases": [
+            {
+              "id": 406,
+              "title": "Open game successfully from lobby",
+              "description": null,
+              "preconditions": "* User is logged in\n* User is on the game lobby page",
+              "postconditions": null,
+              "priority": "undefined",
+              "severity": "normal",
+              "type": "other",
+              "behavior": "undefined",
+              "automation": "to-be-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Navigate to the game lobby",
+                  "expected_result": "",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 2,
+                  "action": "Click Play on the random game thumbnail",
+                  "expected_result": "Game is loading",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 3,
+                  "action": "Wait for the game to load",
+                  "expected_result": "Game loads completely, and the start screen appears",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 4,
+                  "action": "Repeat for first 5 top game",
+                  "expected_result": "Game loads completely, and the start screen appears",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 567,
+              "title": "Check game search feature",
+              "description": null,
+              "preconditions": "Main page is opened",
+              "postconditions": null,
+              "priority": "high",
+              "severity": "normal",
+              "type": "other",
+              "behavior": "undefined",
+              "automation": "is-not-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Open any game",
+                  "expected_result": "Game is opened",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 2,
+                  "action": "Click on the game search",
+                  "expected_result": "The search bar is active. Users can enter the text",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 3,
+                  "action": "Search any game (Aviator for example)",
+                  "expected_result": "Offered games are shown",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 4,
+                  "action": "Click on offered game",
+                  "expected_result": "Game is successfully opened",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            }
+          ]
+        },
+        {
+          "id": 64,
+          "title": "Main page",
+          "description": null,
+          "preconditions": null,
+          "suites": [
+            {
+              "id": 74,
+              "title": "Cashbox",
+              "description": null,
+              "preconditions": null,
+              "suites": [],
+              "cases": [
+                {
+                  "id": 413,
+                  "title": "Open Cashier",
+                  "description": null,
+                  "preconditions": "User is logged in casino account.",
+                  "postconditions": null,
+                  "priority": "undefined",
+                  "severity": "normal",
+                  "type": "other",
+                  "behavior": "undefined",
+                  "automation": "is-not-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "Click on the \"Cashbox\" button",
+                      "expected_result": "* All available tabs (Deposit, Withdraw, History, Bonuses) are visible.\n\n\n* The user is on the deposit page. And sees at least 4 payment methods",
+                      "data": "",
+                      "steps": []
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                },
+                {
+                  "id": 414,
+                  "title": "Verify Cashier Tabs",
+                  "description": null,
+                  "preconditions": null,
+                  "postconditions": null,
+                  "priority": "undefined",
+                  "severity": "normal",
+                  "type": "other",
+                  "behavior": "undefined",
+                  "automation": "is-not-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "Open the Cashier page.",
+                      "expected_result": "",
+                      "data": "",
+                      "steps": []
+                    },
+                    {
+                      "position": 2,
+                      "action": "Click on each tab: \"Deposit\", \"Withdraw\", \"History\",",
+                      "expected_result": "The content of each tab corresponds to its function",
+                      "data": "",
+                      "steps": [
+                        {
+                          "position": 1,
+                          "action": "\"Deposit\"",
+                          "expected_result": "Deposit: Shows available payment methods:\n\n* visa/master\n* apple pay\n* google pay\n* crypto \n    Must be displayed always",
+                          "data": "",
+                          "steps": []
+                        },
+                        {
+                          "position": 2,
+                          "action": "Withdraw",
+                          "expected_result": "Withdraw: Shows available payment methods..",
+                          "data": "",
+                          "steps": []
+                        },
+                        {
+                          "position": 3,
+                          "action": "History",
+                          "expected_result": "Displays recent transactions",
+                          "data": "",
+                          "steps": []
+                        }
+                      ]
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                }
+              ]
+            },
+            {
+              "id": 85,
+              "title": "Footer",
+              "description": null,
+              "preconditions": null,
+              "suites": [],
+              "cases": [
+                {
+                  "id": 570,
+                  "title": "License",
+                  "description": null,
+                  "preconditions": null,
+                  "postconditions": null,
+                  "priority": "undefined",
+                  "severity": "normal",
+                  "type": "other",
+                  "behavior": "undefined",
+                  "automation": "is-not-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "Click GCB / certification icon",
+                      "expected_result": "Opens the licensing/certification page",
+                      "data": "",
+                      "steps": []
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                },
+                {
+                  "id": 573,
+                  "title": "Online chat support",
+                  "description": null,
+                  "preconditions": null,
+                  "postconditions": null,
+                  "priority": "undefined",
+                  "severity": "normal",
+                  "type": "other",
+                  "behavior": "undefined",
+                  "automation": "is-not-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "click Online chat support",
+                      "expected_result": "intercom is opened",
+                      "data": "",
+                      "steps": []
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                },
+                {
+                  "id": 599,
+                  "title": "Click \u201cTerms of Service\u201d",
+                  "description": null,
+                  "preconditions": null,
+                  "postconditions": null,
+                  "priority": "undefined",
+                  "severity": "normal",
+                  "type": "other",
+                  "behavior": "undefined",
+                  "automation": "is-not-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "Click \u201cTerms of Service\u201d",
+                      "expected_result": "Terms page opens;",
+                      "data": "",
+                      "steps": []
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                },
+                {
+                  "id": 600,
+                  "title": "Click \u201cResponsible gaming\u201d",
+                  "description": null,
+                  "preconditions": null,
+                  "postconditions": null,
+                  "priority": "undefined",
+                  "severity": "normal",
+                  "type": "other",
+                  "behavior": "undefined",
+                  "automation": "is-not-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "Click \u201cResponsible gaming\u201d",
+                      "expected_result": "RESPONSIBLE GAMBLING POLICY is opened",
+                      "data": "",
+                      "steps": []
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                },
+                {
+                  "id": 601,
+                  "title": "Click \u201cSelf-Exclusion\u201d",
+                  "description": null,
+                  "preconditions": null,
+                  "postconditions": null,
+                  "priority": "undefined",
+                  "severity": "normal",
+                  "type": "other",
+                  "behavior": "undefined",
+                  "automation": "is-not-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "Click \u201cSelf-Exclusion\u201d",
+                      "expected_result": "Self-exclusion policy page opens;",
+                      "data": "",
+                      "steps": []
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                },
+                {
+                  "id": 602,
+                  "title": "Click \u201cPrivacy & Management of Personal Data\u201d",
+                  "description": null,
+                  "preconditions": null,
+                  "postconditions": null,
+                  "priority": "undefined",
+                  "severity": "normal",
+                  "type": "other",
+                  "behavior": "undefined",
+                  "automation": "is-not-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                },
+                {
+                  "id": 606,
+                  "title": "KYC Policies",
+                  "description": null,
+                  "preconditions": null,
+                  "postconditions": null,
+                  "priority": "undefined",
+                  "severity": "normal",
+                  "type": "other",
+                  "behavior": "undefined",
+                  "automation": "is-not-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "Click on KYC Policies",
+                      "expected_result": "KNOW YOUR CUSTOMER (KYC) POLICY page is opened",
+                      "data": "",
+                      "steps": []
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                },
+                {
+                  "id": 607,
+                  "title": "Click \u201cPrivacy & Management of Personal Data\u201d",
+                  "description": null,
+                  "preconditions": null,
+                  "postconditions": null,
+                  "priority": "undefined",
+                  "severity": "normal",
+                  "type": "other",
+                  "behavior": "undefined",
+                  "automation": "is-not-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "Click \u201cPrivacy & Management of Personal Data\u201d",
+                      "expected_result": "Privacy & Data Protection Policy is opened",
+                      "data": "",
+                      "steps": []
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                },
+                {
+                  "id": 608,
+                  "title": "Accounts, Payouts & Bonuses",
+                  "description": null,
+                  "preconditions": null,
+                  "postconditions": null,
+                  "priority": "undefined",
+                  "severity": "normal",
+                  "type": "other",
+                  "behavior": "undefined",
+                  "automation": "is-not-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "click Accounts, Payouts & Bonuses",
+                      "expected_result": "ACCOUNTS, PAYOUTS & BONUSES POLICY is opened",
+                      "data": "",
+                      "steps": []
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                }
+              ]
+            }
+          ],
+          "cases": [
+            {
+              "id": 377,
+              "title": "Check \"Search your game\" input",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "high",
+              "severity": "normal",
+              "type": "functional",
+              "behavior": "undefined",
+              "automation": "to-be-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Click on the \"Search your game\" field",
+                  "expected_result": "The field is switched to an active state and is ready to accept info",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 2,
+                  "action": "Enter a name of an existing game",
+                  "expected_result": "The input field offers suggestions while the info is being entered. The needed game is shown when the name is entered in full",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 3,
+                  "action": "Click on found game",
+                  "expected_result": "The game is successfully opened",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 397,
+              "title": "Check \"Providers\" dropdown",
+              "description": null,
+              "preconditions": "The main page is open",
+              "postconditions": null,
+              "priority": "high",
+              "severity": "normal",
+              "type": "functional",
+              "behavior": "undefined",
+              "automation": "to-be-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Click on the \"Providers\" button",
+                  "expected_result": "![\u0417\u043d\u0456\u043c\u043e\u043a \u0435\u043a\u0440\u0430\u043d\u0430 2025-09-30 \u043e 15.53.32.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/92404f8de9988ae315426eddfdba1c922e4636d8/%D0%97%D0%BD%D1%96%D0%BC%D0%BE%D0%BA%20%D0%B5%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-09-30%20%D0%BE%2015.53.32.png)\nProdiver's dropdown list is opened",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 2,
+                  "action": "Click on any provider.",
+                  "expected_result": "After selecting a provider, the corresponding games are displayed, and the provider's name appears above them",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 410,
+              "title": "Game Categories Slider Navigation",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "undefined",
+              "severity": "normal",
+              "type": "other",
+              "behavior": "undefined",
+              "automation": "is-not-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Open the main page",
+                  "expected_result": "game categories slider is displayed.",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 2,
+                  "action": "Click each category wich displayed in the slider.",
+                  "expected_result": "The corresponding category game list opens correctly.![\u0417\u043d\u0456\u043c\u043e\u043a \u0435\u043a\u0440\u0430\u043d\u0430 2025-09-30 \u043e 16.01.17.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/cbd02cbd40c1be83222088e42f5e3535e97ce0d3/%D0%97%D0%BD%D1%96%D0%BC%D0%BE%D0%BA%20%D0%B5%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-09-30%20%D0%BE%2016.01.17.png)",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 461,
+              "title": "Check \"Promotions\" button",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "high",
+              "severity": "normal",
+              "type": "functional",
+              "behavior": "undefined",
+              "automation": "to-be-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Click on the \"Promotions\" button",
+                  "expected_result": "A user is transferred to the promotions page",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 462,
+              "title": "Check \"Slots\" button",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "high",
+              "severity": "normal",
+              "type": "functional",
+              "behavior": "undefined",
+              "automation": "to-be-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Click on the \"Slot\" button",
+                  "expected_result": "A user is transferred to the all games category",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 465,
+              "title": "Check \"Bonuses\" button",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "high",
+              "severity": "normal",
+              "type": "functional",
+              "behavior": "undefined",
+              "automation": "to-be-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Click on the \"Bonuses\" button",
+                  "expected_result": "A user is transferred to the my bonuses section in profile",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 467,
+              "title": "Check \"Live casino\" button",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "high",
+              "severity": "normal",
+              "type": "functional",
+              "behavior": "undefined",
+              "automation": "to-be-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Click on the \"Live casino\" button",
+                  "expected_result": "A user is transferred to the live casino page",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 470,
+              "title": "Promo Block Check the take it button",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "undefined",
+              "severity": "normal",
+              "type": "other",
+              "behavior": "undefined",
+              "automation": "is-not-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "* Navigate to the main page.",
+                  "expected_result": "",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 2,
+                  "action": "* Locate the promo block.",
+                  "expected_result": "Promo banner is visible.![\u0417\u043d\u0456\u043c\u043e\u043a \u0435\u043a\u0440\u0430\u043d\u0430 2025-10-24 \u043e 12.03.19.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/76d4598370917dd2f78a4a95e189f5cd18c6fdd6/%D0%97%D0%BD%D1%96%D0%BC%D0%BE%D0%BA%20%D0%B5%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-10-24%20%D0%BE%2012.03.19.png)",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 471,
+              "title": "Promo Block check the buttons",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "undefined",
+              "severity": "normal",
+              "type": "other",
+              "behavior": "undefined",
+              "automation": "is-not-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Click on the take it button![\u0417\u043d\u0456\u043c\u043e\u043a \u0435\u043a\u0440\u0430\u043d\u0430 2025-10-27 \u043e 17.21.18.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/b583e5eaacdb62db5c7a851ab1d15051852db529/%D0%97%D0%BD%D1%96%D0%BC%D0%BE%D0%BA%20%D0%B5%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-10-27%20%D0%BE%2017.21.18.png)",
+                  "expected_result": "cashier is opened",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 473,
+              "title": "Promo Block check the details buttons",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "undefined",
+              "severity": "normal",
+              "type": "other",
+              "behavior": "undefined",
+              "automation": "is-not-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Click on the details button![\u0417\u043d\u0456\u043c\u043e\u043a \u0435\u043a\u0440\u0430\u043d\u0430 2025-10-27 \u043e 17.21.42.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/6b49b094bd10db28e5b289bba86e528d910ff9e7/%D0%97%D0%BD%D1%96%D0%BC%D0%BE%D0%BA%20%D0%B5%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-10-27%20%D0%BE%2017.21.42.png)",
+                  "expected_result": "Promo page is opened",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 476,
+              "title": "Provider Block  \u201cGet More\u201d Button Navigation",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "undefined",
+              "severity": "normal",
+              "type": "other",
+              "behavior": "undefined",
+              "automation": "is-not-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Scroll to the bottom of the Provider block.",
+                  "expected_result": "Block is visible on the main page.",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 2,
+                  "action": "Click the **\u201cGet More\u201d** button.",
+                  "expected_result": "User is redirected to the **All Providers** page.\nThe page displays a **full list of providers**",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 3,
+                  "action": "Click on a provider card ( Pragmatic Play, BGaming, etc.).",
+                  "expected_result": "* User is redirected to a page or section showing games only from the selected provider.\n* The provider name is highlighted or displayed in the page heade\u043a",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 477,
+              "title": "Support button functionality",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "undefined",
+              "severity": "normal",
+              "type": "other",
+              "behavior": "undefined",
+              "automation": "is-not-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Click on the **Support** button.",
+                  "expected_result": "Chat window opens",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            }
+          ]
+        },
+        {
+          "id": 65,
+          "title": "Promo page",
+          "description": null,
+          "preconditions": null,
+          "suites": [],
+          "cases": [
+            {
+              "id": 490,
+              "title": "Promo card check the Take It buttons",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "undefined",
+              "severity": "normal",
+              "type": "other",
+              "behavior": "undefined",
+              "automation": "is-not-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Click on the take it button![\u0417\u043d\u0456\u043c\u043e\u043a \u0435\u043a\u0440\u0430\u043d\u0430 2025-10-27 \u043e 17.21.18.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/b583e5eaacdb62db5c7a851ab1d15051852db529/%D0%97%D0%BD%D1%96%D0%BC%D0%BE%D0%BA%20%D0%B5%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-10-27%20%D0%BE%2017.21.18.png)",
+                  "expected_result": "cashier is opened",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 491,
+              "title": "Promo card check the details buttons",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "undefined",
+              "severity": "normal",
+              "type": "other",
+              "behavior": "undefined",
+              "automation": "is-not-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Click on the details button![\u0417\u043d\u0456\u043c\u043e\u043a \u0435\u043a\u0440\u0430\u043d\u0430 2025-10-27 \u043e 17.21.42.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/6b49b094bd10db28e5b289bba86e528d910ff9e7/%D0%97%D0%BD%D1%96%D0%BC%D0%BE%D0%BA%20%D0%B5%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-10-27%20%D0%BE%2017.21.42.png)",
+                  "expected_result": "Promo page is opened",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            },
+            {
+              "id": 492,
+              "title": "Verify that promo cards are displayed on the page",
+              "description": null,
+              "preconditions": null,
+              "postconditions": null,
+              "priority": "undefined",
+              "severity": "normal",
+              "type": "other",
+              "behavior": "undefined",
+              "automation": "is-not-automated",
+              "status": "actual",
+              "is_flaky": "no",
+              "layer": "unknown",
+              "milestone": null,
+              "custom_fields": [],
+              "steps_type": "classic",
+              "steps": [
+                {
+                  "position": 1,
+                  "action": "Open the page",
+                  "expected_result": "Promo page is opened",
+                  "data": "",
+                  "steps": []
+                },
+                {
+                  "position": 2,
+                  "action": "Verify that at least one promo card is displayed.",
+                  "expected_result": "Promo card is displayed.",
+                  "data": "",
+                  "steps": []
+                }
+              ],
+              "tags": ["TR_Smoke"],
+              "params": [],
+              "is_muted": "no"
+            }
+          ]
+        },
+        {
+          "id": 83,
+          "title": "Player's Menu",
+          "description": null,
+          "preconditions": null,
+          "suites": [
+            {
+              "id": 77,
+              "title": "Activity",
+              "description": null,
+              "preconditions": null,
+              "suites": [],
+              "cases": [
+                {
+                  "id": 508,
+                  "title": "Open Activity tab",
+                  "description": null,
+                  "preconditions": "User is logged in and on the main page.",
+                  "postconditions": null,
+                  "priority": "undefined",
+                  "severity": "normal",
+                  "type": "other",
+                  "behavior": "undefined",
+                  "automation": "is-not-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "Click the activity",
+                      "expected_result": "**Activity** tab is displayed by default, showing sub-tabs \u201cHub\u201d and \u201cMy bonuses\u201d.",
+                      "data": "",
+                      "steps": []
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                },
+                {
+                  "id": 509,
+                  "title": "Verify Activity sub-tabs: Hub and My bonuses presence",
+                  "description": null,
+                  "preconditions": "PlayerMenu is open and Activity tab is active.",
+                  "postconditions": null,
+                  "priority": "undefined",
+                  "severity": "normal",
+                  "type": "other",
+                  "behavior": "undefined",
+                  "automation": "to-be-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "Observe the Activity area.",
+                      "expected_result": "Two sub-tabs are visible **Hub** and **My bonuses**.",
+                      "data": "",
+                      "steps": []
+                    },
+                    {
+                      "position": 2,
+                      "action": "Click the **My bonuses** sub-tab.",
+                      "expected_result": "My bonuses\u201d panel opens",
+                      "data": "",
+                      "steps": []
+                    },
+                    {
+                      "position": 3,
+                      "action": "Click the **Hub** sub-tab.",
+                      "expected_result": "Hub panel opens and displays feature section.![\u0417\u043d\u0456\u043c\u043e\u043a \u0435\u043a\u0440\u0430\u043d\u0430 2025-10-28 \u043e 17.53.48.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/0882957f3585fb192b3a68ea2edcf6e3c50acdaf/%D0%97%D0%BD%D1%96%D0%BC%D0%BE%D0%BA%20%D0%B5%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-10-28%20%D0%BE%2017.53.48.png)",
+                      "data": "",
+                      "steps": []
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                },
+                {
+                  "id": 510,
+                  "title": "Hub, verify disabled features panel",
+                  "description": null,
+                  "preconditions": null,
+                  "postconditions": null,
+                  "priority": "undefined",
+                  "severity": "normal",
+                  "type": "other",
+                  "behavior": "undefined",
+                  "automation": "is-not-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "Observe the feature panel in Hub.",
+                      "expected_result": "Feature items are visible but inactive ( \u201ccoming soon\u201d).\nExcept: My vip level/ wheel of fortune.",
+                      "data": "",
+                      "steps": [
+                        {
+                          "position": 1,
+                          "action": "Click on My vip level",
+                          "expected_result": "Vip page is opened",
+                          "data": "",
+                          "steps": []
+                        },
+                        {
+                          "position": 2,
+                          "action": "Click on Fortune wheel",
+                          "expected_result": "Wheel o fortune page is opened",
+                          "data": "",
+                          "steps": []
+                        }
+                      ]
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                }
+              ]
+            },
+            {
+              "id": 73,
+              "title": "Wallet",
+              "description": null,
+              "preconditions": null,
+              "suites": [],
+              "cases": [
+                {
+                  "id": 391,
+                  "title": "Check \"Deposit\" button",
+                  "description": null,
+                  "preconditions": "The user is logged in. \nThe user is on the wallet page of the player profile.\n[https://tombriches1.com/en/profile/balance](https://tombriches1.com/en/profile/balance)",
+                  "postconditions": null,
+                  "priority": "high",
+                  "severity": "normal",
+                  "type": "functional",
+                  "behavior": "undefined",
+                  "automation": "to-be-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "Locate deposit button.",
+                      "expected_result": "The button is present on the wallet page, under balance info.\n![image.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/dec114bd2c5f1e9e52292d22ac290e5c2dd2d53a/image.png)",
+                      "data": "",
+                      "steps": []
+                    },
+                    {
+                      "position": 2,
+                      "action": "Hover over the \"deposit\" button.",
+                      "expected_result": "The button changes color to a lighter shade.\n![image.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/2db67d2042b805473780bb5b62456c8c91221e36/image.png)",
+                      "data": "",
+                      "steps": []
+                    },
+                    {
+                      "position": 3,
+                      "action": "Click on the \"Deposit\" button.",
+                      "expected_result": "User is redirected to the cashier page.\n[https://tombriches1.com/en/cashbox/deposit](https://tombriches1.com/en/cashbox/deposit)\n![image.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/1f930ba086a6bc8c186f8e1eb58ffcef40c94a39/image.png)",
+                      "data": "",
+                      "steps": []
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                },
+                {
+                  "id": 501,
+                  "title": "Check \"withdraw\" button",
+                  "description": null,
+                  "preconditions": "The user is logged in. \nThe user is on the wallet page of the player profile.\n[https://tombriches1.com/en/profile/balance](https://tombriches1.com/en/profile/balance)",
+                  "postconditions": null,
+                  "priority": "high",
+                  "severity": "normal",
+                  "type": "functional",
+                  "behavior": "undefined",
+                  "automation": "to-be-automated",
+                  "status": "actual",
+                  "is_flaky": "no",
+                  "layer": "unknown",
+                  "milestone": null,
+                  "custom_fields": [],
+                  "steps_type": "classic",
+                  "steps": [
+                    {
+                      "position": 1,
+                      "action": "Locate withdraw button.",
+                      "expected_result": "The button is present on the wallet page, under balance info.\n![image.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/3af3da35721379eae53d72dd9d93487634ead5b3/image.png)",
+                      "data": "",
+                      "steps": []
+                    },
+                    {
+                      "position": 2,
+                      "action": "Hover over the \"withdraw\" button.",
+                      "expected_result": "The button outline is highlighted.",
+                      "data": "",
+                      "steps": []
+                    },
+                    {
+                      "position": 3,
+                      "action": "Click on the \"withdraw\" button.",
+                      "expected_result": "User is redirected to the waithdraw page.\n[https://tombriches1.com/en/cashbox/withdraw](https://tombriches1.com/en/cashbox/withdraw)\n![image.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/03b737f8d8a2ee7cb238eb33cbea7b1c887de5d1/image.png)",
+                      "data": "",
+                      "steps": []
+                    }
+                  ],
+                  "tags": ["TR_Smoke"],
+                  "params": [],
+                  "is_muted": "no"
+                }
+              ]
+            }
+          ],
+          "cases": []
+        }
+      ],
+      "cases": [
+        {
+          "id": 429,
+          "title": "Main Page Load and Initial UI Check",
+          "description": null,
+          "preconditions": null,
+          "postconditions": null,
+          "priority": "undefined",
+          "severity": "normal",
+          "type": "other",
+          "behavior": "undefined",
+          "automation": "is-not-automated",
+          "status": "actual",
+          "is_flaky": "no",
+          "layer": "unknown",
+          "milestone": null,
+          "custom_fields": [],
+          "steps_type": "classic",
+          "steps": [
+            {
+              "position": 1,
+              "action": "Open the main casino website URL",
+              "expected_result": "The homepage loads successfully without errors, and all key UI elements (header, side bar menu, main banner, games, categories, footer) are visible and correctly displayed.![\u0417\u043d\u0456\u043c\u043e\u043a \u0435\u043a\u0440\u0430\u043d\u0430 2025-09-30 \u043e 15.38.37.png](https://d2cxucsjd6xvsd.cloudfront.net/public/team/34eb3bdbdfa2892c74ab59ad56459399adf35129/attachment/9b7e3ddfa8fb03efe8b704858804b1125e5f905c/%D0%97%D0%BD%D1%96%D0%BC%D0%BE%D0%BA%20%D0%B5%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-09-30%20%D0%BE%2015.38.37.png)",
+              "data": "",
+              "steps": []
+            }
+          ],
+          "tags": ["TR_Smoke"],
+          "params": [],
+          "is_muted": "no"
+        }
+      ]
+    }
+  ]
+}

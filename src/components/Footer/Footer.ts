@@ -14,8 +14,10 @@ type FooterLinksType = {
 };
 
 export default class Footer extends BaseComponent {
-  public cbgLicenseButton: Locator = this.page.locator('.footer-trust-icon.wide-footer-trust-icon');
-  public footerLinks: FooterLinksType = {
+  readonly cbgLicenseButton: Locator = this.page.locator(
+    '.footer-trust-icon.wide-footer-trust-icon'
+  );
+  readonly footerLinks: FooterLinksType = {
     termsOfService: this.page.getByRole('link', { name: 'Terms of Service' }),
     responsibleGaming: this.page.getByRole('link', { name: 'Responsible Gaming' }),
     selfExclusion: this.page.getByRole('link', { name: 'Self-Exclusion' }),

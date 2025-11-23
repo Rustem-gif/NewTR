@@ -3,27 +3,49 @@ import BasePage from '../../Base/BasePage';
 import { RegUser, UserData } from '../../utils/userBuilder';
 
 export default class SignUpPage extends BasePage {
-  protected emailInput: Locator = this.page.locator('#email-input');
-  protected passwordInput: Locator = this.page.locator('#password-input');
+  protected emailInput: Locator = this.page.locator('#email-input').describe('Email input');
+  protected passwordInput: Locator = this.page
+    .locator('#password-input')
+    .describe('Password input');
 
-  protected firstNameInput: Locator = this.page.locator('#firstName-input');
-  protected lastNameInput: Locator = this.page.locator('#lastName-input');
-  protected regionInput: Locator = this.page.locator('#address\\.region-input');
-  protected cityInput: Locator = this.page.locator('#address\\.city-input');
-  protected homeAddressInput: Locator = this.page.locator('#address\\.homeAddress-input');
-  protected zipCodeInput: Locator = this.page.locator('#address\\.zipCode-input');
+  protected firstNameInput: Locator = this.page
+    .locator('#firstName-input')
+    .describe('First name input');
+  protected lastNameInput: Locator = this.page
+    .locator('#lastName-input')
+    .describe('Last name input');
+  protected regionInput: Locator = this.page
+    .locator('#address\\.region-input')
+    .describe('Region input');
+  protected cityInput: Locator = this.page.locator('#address\\.city-input').describe('City input');
+  protected homeAddressInput: Locator = this.page
+    .locator('#address\\.homeAddress-input')
+    .describe('Home address input');
+  protected zipCodeInput: Locator = this.page
+    .locator('#address\\.zipCode-input')
+    .describe('Zip code input');
 
-  protected yearSelect: Locator = this.page.locator('#birthDate\\.year-input');
-  protected monthSelect: Locator = this.page.locator('#birthDate\\.month-input');
-  protected daySelect: Locator = this.page.locator('#birthDate\\.day-input');
-  protected submitRegFormButton: Locator = this.page.locator('#sibmit-registration-button');
+  protected yearSelect: Locator = this.page
+    .locator('#birthDate\\.year-input')
+    .describe('Year select');
+  protected monthSelect: Locator = this.page
+    .locator('#birthDate\\.month-input')
+    .describe('Month select');
+  protected daySelect: Locator = this.page.locator('#birthDate\\.day-input').describe('Day select');
+  protected submitRegFormButton: Locator = this.page
+    .locator('#sibmit-registration-button')
+    .describe('Submit registration button');
 
-  protected authRulesSwitcher: Locator = this.page.locator('#auth-rules-switcher');
-  protected goToSignInButton: Locator = this.page.locator('#go-to-sign-in-button');
+  protected authRulesSwitcher: Locator = this.page
+    .locator('#auth-rules-switcher')
+    .describe('Auth rules switcher');
+  protected goToSignInButton: Locator = this.page
+    .locator('#go-to-sign-in-button')
+    .describe('Go to sign in button');
 
-  public emailInputErrorUsed: Locator = this.page.getByText(
-    'User with this email is already registered'
-  );
+  readonly emailInputErrorUsed: Locator = this.page
+    .getByText('User with this email is already registered')
+    .describe('Email already used error');
 
   private mapUserDataToRegUser(userData: UserData): RegUser {
     const regUser: RegUser = {};
@@ -89,7 +111,7 @@ export default class SignUpPage extends BasePage {
     }
   }
 
-  public async registerNewUser(userData: UserData): Promise<void> {
+  async registerNewUser(userData: UserData): Promise<void> {
     const mappedUser: RegUser = this.mapUserDataToRegUser(userData);
     await this.fillSignUpFormInputs(mappedUser);
     await this.selectBirthDate(mappedUser);

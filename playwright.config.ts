@@ -6,11 +6,34 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
 
-  retries: 0,
+  retries: 3,
 
-  workers: 1,
+  workers: 3,
 
-  reporter: 'html',
+  reporter: [
+    ['html'],
+    ['list'],
+    [
+      'playwright-qase-reporter',
+      {
+        debug: true,
+        mode: 'testops',
+        logging: true,
+        testops: {
+          api: {
+            token: '2b3e65ab1ee17f1440a13c94b9d1da5429f590fdbcc8d080ddc41268ae50305b',
+          },
+
+          project: 'TR',
+          uploadAttachments: true,
+          run: {
+            complete: true,
+            title: 'TR Smoke',
+          },
+        },
+      },
+    ],
+  ],
 
   use: {
     baseURL: 'https://tombriches1.com/en',
