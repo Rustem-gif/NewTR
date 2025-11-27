@@ -24,11 +24,11 @@ export default defineConfig({
             token: '2b3e65ab1ee17f1440a13c94b9d1da5429f590fdbcc8d080ddc41268ae50305b',
           },
 
-          project: 'TR',
+          project: 'AUTOMATION',
           uploadAttachments: true,
           run: {
             complete: true,
-            title: 'TR Smoke',
+            title: process.env.TEST_RUN_TITLE || 'TR Automated Run',
           },
         },
       },

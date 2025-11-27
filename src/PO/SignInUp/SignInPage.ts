@@ -8,9 +8,7 @@ export default class SignInPage extends BasePage {
     .locator('input[autocomplete="current-password"]')
     .describe('Password input');
   private signInButton = this.page.locator('#login-submit-button').describe('Sign in button');
-  private forgotPasswordButton = this.page
-    .locator('#forgot-password-button')
-    .describe('Forgot password button');
+  // private forgotPasswordButton = this.page.locator('#forgot-password-button').describe('Forgot password button');
 
   async signIn(
     mode: 'email' | 'phone',

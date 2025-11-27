@@ -2,37 +2,27 @@
   "cookies": [
     {
       "name": "token",
-      "value": "44980d8eeffa5906c9c708e95e93fa2a",
+      "value": "f13ccb34d2a97e935f63f6d7505a4076",
       "domain": "tombriches1.com",
       "path": "/api/",
-      "expires": 1764539770.327408,
+      "expires": 1764881884.849844,
       "httpOnly": true,
       "secure": false,
       "sameSite": "Strict"
     },
     {
       "name": "_ga",
-      "value": "GA1.1.2013909799.1763934969",
+      "value": "GA1.1.165222603.1764277083",
       "domain": ".tombriches1.com",
       "path": "/",
-      "expires": 1798494968.942165,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "_fbp",
-      "value": "fb.1.1763934969311.941718271587284085",
-      "domain": ".tombriches1.com",
-      "path": "/",
-      "expires": 1771710970,
+      "expires": 1798837083.157956,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "_cfuvid",
-      "value": "2BLxsRUiAaKvWynLOcMR3CXqJV8mSrdNGEM2165o.Pc-1763934968640-0.0.1.1-604800000",
+      "value": "4MfAfeB.V6y4TnJnCV2lJZ08mbyemoggYHAmEKXhWN4-1764277084048-0.0.1.1-604800000",
       "domain": ".challenges.cloudflare.com",
       "path": "/",
       "expires": -1,
@@ -41,61 +31,51 @@
       "sameSite": "None"
     },
     {
-      "name": "_ga_8NVCR9P91P",
-      "value": "GS2.1.s1763934968$o1$g1$t1763934970$j58$l0$h1210168254",
+      "name": "_fbp",
+      "value": "fb.1.1764277083523.159877492995635208",
       "domain": ".tombriches1.com",
       "path": "/",
-      "expires": 1798494970.298884,
+      "expires": 1772053085,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_8NVCR9P91P",
+      "value": "GS2.1.s1764277083$o1$g1$t1764277084$j59$l0$h1265541854",
+      "domain": ".tombriches1.com",
+      "path": "/",
+      "expires": 1798837084.519303,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "intercom-id-z3x0st3y",
-      "value": "4e77968f-05a5-465d-8397-28932ede4091",
+      "value": "adf20ab5-9218-4a91-b059-4b4c4713af41",
       "domain": ".tombriches1.com",
       "path": "/",
-      "expires": 1787264970,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "intercom-device-id-z3x0st3y",
-      "value": "f21b3882-ccd5-4e01-b610-bbcb521324de",
-      "domain": ".tombriches1.com",
-      "path": "/",
-      "expires": 1787264971,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "ajs_anonymous_id",
-      "value": "4e688e12-0afd-4e84-a2ef-43f6599c8f8a",
-      "domain": ".tombriches1.com",
-      "path": "/",
-      "expires": 1795470971,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "ajs_user_id",
-      "value": "d44i9a0pj5fgsg7skqeg",
-      "domain": ".tombriches1.com",
-      "path": "/",
-      "expires": 1795470971,
+      "expires": 1787607085,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "intercom-session-z3x0st3y",
-      "value": "bi8zNlljRVB1TXVPUGRJMXZsK2dqTVdKbjdpWmFBTFc1ZktOTHdCcFVzVXk3bnRTMGtIbW5OYzMwc3NDanl0NVptUWFrSXhtWlFRU1VzaWJ2SVVmTGFmOVFIcXIxYlRKNFBxYS9qelBGclk9LS1LRGU5eW83RFIwRCtSMDBXd3U0aWl3PT0=--a1de1381fdb120595364fcfb9cfcd1e693710fa1",
+      "value": "",
       "domain": ".tombriches1.com",
       "path": "/",
-      "expires": 1764539770,
+      "expires": 1764881885,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "intercom-device-id-z3x0st3y",
+      "value": "7649d8a5-2ba9-4355-87e6-c27a1790d975",
+      "domain": ".tombriches1.com",
+      "path": "/",
+      "expires": 1787607085,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -106,68 +86,36 @@
       "origin": "https://tombriches1.com",
       "localStorage": [
         {
-          "name": "lang",
-          "value": "en"
-        },
-        {
-          "name": "gist.web.userToken",
-          "value": "{\"value\":\"d44i9a0pj5fgsg7skqeg\",\"expiry\":\"2025-12-23T21:56:11.276Z\"}"
-        },
-        {
-          "name": "gist.web.customAttributes",
-          "value": "{\"value\":[[\"cio_anonymous_id\",\"4e688e12-0afd-4e84-a2ef-43f6599c8f8a\"]],\"expiry\":\"2025-12-23T21:56:11.270Z\"}"
-        },
-        {
-          "name": "topicsLastReferenceTime",
-          "value": "1763934970481"
-        },
-        {
-          "name": "gist.web.sessionId",
-          "value": "{\"value\":\"6b4ae368-d74d-4b19-a6f5-4b11b7b71df2\",\"expiry\":\"2025-11-23T22:26:11.276Z\"}"
-        },
-        {
-          "name": "ur",
-          "value": "de"
-        },
-        {
-          "name": "gist.web.userQueueUseSSE",
-          "value": "{\"value\":false,\"expiry\":\"2025-11-23T21:57:11.276Z\"}"
-        },
-        {
-          "name": "intercom.intercom-state-z3x0st3y",
-          "value": "{\"app\":{\"openConfig\":{\"unifiedStyling\":true,\"openTo\":\"home\",\"spaces\":[{\"type\":\"home\",\"label\":\"Home\",\"navigationLabel\":\"Home\",\"badge\":null},{\"type\":\"messages\",\"label\":\"Messages\",\"navigationLabel\":\"Messages\",\"badge\":null},{\"type\":\"tickets\",\"label\":\"Tickets\",\"navigationLabel\":\"Tickets\",\"badge\":null},{\"type\":\"help\",\"label\":\"Help\",\"navigationLabel\":\"Help\",\"badge\":null}],\"userHasReceivedChecklists\":false,\"userHasLiveNewsfeed\":false,\"userHasTickets\":false},\"selfServeSuggestionsMatch\":false,\"name\":\"Tomb Riches\",\"features\":{\"anonymousInboundMessages\":true,\"googleAnalytics\":false,\"hubspotInstalled\":false,\"inboundMessages\":true,\"marketoEnrichmentInstalled\":false,\"googleAnalytics4Integration\":true},\"helpCenterSiteUrl\":\"https://intercom-help.eu/tomb-riches\",\"inboundConversationsDisabled\":false,\"isDeveloperWorkspace\":false,\"customGoogleAnalyticsTrackerId\":null},\"launcher\":{\"isLauncherEnabled\":true},\"launcherDiscoveryMode\":{\"hasDiscoveredLauncher\":false},\"launcherSettings\":{\"alignment\":\"right\",\"color\":\"#2bb68d\",\"colorDark\":\"#2bb68d\",\"hasRequiredFeatures\":true,\"horizontalPadding\":20,\"instantBootEnabled\":true,\"launcherLogoUrl\":\"https://downloads.intercomcdn.eu/i/o/8081/3952ac122347e4b2784edb4f/62868bcb0ea6a88d122e96c007c30da3.png\",\"launcherLogoDarkUrl\":null,\"secondaryColor\":\"#050000\",\"secondaryColorDark\":\"#050000\",\"showLauncher\":true,\"themeMode\":\"light\",\"updatedAt\":1763856022,\"verticalPadding\":90,\"isLoading\":false},\"user\":{\"role\":\"user\",\"locale\":\"en\",\"hasConversations\":true},\"message\":{},\"conversations\":{\"byId\":{}},\"openOnBoot\":{\"type\":null,\"metadata\":{},\"lastOpenAtTimestamp\":1763934971304},\"operator\":{\"lastComposerEvent\":0},\"router\":{\"isInitialized\":false,\"navigationQueue\":[]}}"
-        },
-        {
           "name": "wid",
           "value": "d44i9a5dc6efriqcfol0"
         },
         {
+          "name": "lang",
+          "value": "en"
+        },
+        {
           "name": "lastExternalReferrerTime",
-          "value": "1763934969305"
+          "value": "1764277083517"
         },
         {
           "name": "lastExternalReferrer",
           "value": "empty"
         },
         {
+          "name": "ur",
+          "value": "de"
+        },
+        {
           "name": "ca",
           "value": "true"
         },
         {
+          "name": "intercom.intercom-state-z3x0st3y",
+          "value": "{\"app\":{\"openConfig\":{\"unifiedStyling\":true,\"openTo\":\"home\",\"spaces\":[{\"type\":\"home\",\"label\":\"Home\",\"navigationLabel\":\"Home\",\"badge\":null},{\"type\":\"messages\",\"label\":\"Messages\",\"navigationLabel\":\"Messages\",\"badge\":null},{\"type\":\"tickets\",\"label\":\"Tickets\",\"navigationLabel\":\"Tickets\",\"badge\":null},{\"type\":\"help\",\"label\":\"Help\",\"navigationLabel\":\"Help\",\"badge\":null}],\"userHasReceivedChecklists\":false,\"userHasLiveNewsfeed\":false,\"userHasTickets\":false},\"selfServeSuggestionsMatch\":false,\"name\":\"Tomb Riches\",\"features\":{\"anonymousInboundMessages\":true,\"googleAnalytics\":false,\"hubspotInstalled\":false,\"inboundMessages\":true,\"marketoEnrichmentInstalled\":false,\"googleAnalytics4Integration\":true},\"helpCenterSiteUrl\":\"https://intercom-help.eu/tomb-riches\",\"inboundConversationsDisabled\":false,\"isDeveloperWorkspace\":false,\"customGoogleAnalyticsTrackerId\":null},\"launcher\":{\"isLauncherEnabled\":true},\"launcherDiscoveryMode\":{\"hasDiscoveredLauncher\":false},\"launcherSettings\":{\"alignment\":\"right\",\"color\":\"#2bb68d\",\"colorDark\":\"#2bb68d\",\"hasRequiredFeatures\":true,\"horizontalPadding\":20,\"instantBootEnabled\":true,\"launcherLogoUrl\":\"https://downloads.intercomcdn.eu/i/o/8081/3952ac122347e4b2784edb4f/62868bcb0ea6a88d122e96c007c30da3.png\",\"launcherLogoDarkUrl\":null,\"secondaryColor\":\"#050000\",\"secondaryColorDark\":\"#050000\",\"showLauncher\":true,\"themeMode\":\"light\",\"updatedAt\":1764201622,\"verticalPadding\":90,\"isLoading\":false},\"user\":{\"role\":\"visitor\",\"locale\":\"en\",\"hasConversations\":false},\"message\":{},\"conversations\":{\"byId\":{}},\"openOnBoot\":{\"type\":null,\"metadata\":{},\"lastOpenAtTimestamp\":1764277085682},\"operator\":{\"lastComposerEvent\":0},\"router\":{\"isInitialized\":false,\"navigationQueue\":[]}}"
+        },
+        {
           "name": "tib",
           "value": "{\"d44i9a0pj5fgsg7skqeg\":[]}"
-        },
-        {
-          "name": "ajs_anonymous_id",
-          "value": "\"4e688e12-0afd-4e84-a2ef-43f6599c8f8a\""
-        },
-        {
-          "name": "ajs_user_id",
-          "value": "\"d44i9a0pj5fgsg7skqeg\""
-        },
-        {
-          "name": "ajs_user_traits",
-          "value": "{}"
         }
       ]
     }
