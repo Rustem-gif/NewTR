@@ -11,7 +11,8 @@
     "test:ui": "playwright test --ui",
     "test:debug": "playwright test --debug",
     "prepare": "husky",
-    "test:smoke": "cross-env TEST_RUN_TITLE=\"TR Smoke\" npx playwright test --grep @smoke"
+    "test:smoke": "cross-env TEST_RUN_TITLE=\"TR Smoke\" npx playwright test --grep @smoke",
+    "test:dep": "cross-env TEST_RUN_TITLE=\"Deposit Methods\" npx playwright test --project='DepMethods' --workers=1 --grep @depMethods --headed"
   },
   "keywords": [],
   "author": "",
@@ -42,5 +43,8 @@
     "*.{json,md,yml,yaml}": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "playwright-slack-report": "^1.1.100"
   }
 }

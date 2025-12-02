@@ -23,13 +23,31 @@ show_menu() {
     echo ""
     echo -e "${GREEN}1)${NC} Install Dependencies"
     echo -e "${GREEN}2)${NC} Pull latest updates from Git"
-    echo -e "${GREEN}3)${NC} Run Smoke tests"
-    echo -e "${GREEN}4)${NC} Install Playwright browsers"
-    echo -e "${GREEN}5)${NC} Open Playwright Test UI"
+    echo -e "${GREEN}3)${NC} Install Playwright browsers"
+    echo -e "${GREEN}4)${NC} Open Playwright Test UI"
+    echo -e "${MAGENTA}5)${NC} Run Tests ➜  ${CYAN}Test menu${NC}"
     echo -e "${GREEN}6)${NC} Exit"
     echo -e "${CYAN}============================${NC}"
     echo -n "Please choose an option [1-6]: "
 }
+
+
+show_test_menu() {
+    clear
+    echo -e "${MAGENTA}┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓${NC}"
+    echo -e "${MAGENTA}┃${CYAN}   🧪  TEST SANCTUARY · AUTOMATED QUALITY GATEWAY  🧪                 ${MAGENTA}┃${NC}"
+    echo -e "${MAGENTA}┃${CYAN}      Smoke, regression & rituals for bug exorcism 🔥                  ${MAGENTA}┃${NC}"
+    echo -e "${MAGENTA}┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫${NC}"
+    echo -e "${MAGENTA}┃${NC}  ${GREEN}[1]${NC} Run Smoke Tests        ${YELLOW}⚡ Fast health check${NC}                      ${MAGENTA}┃${NC}"
+    echo -e "${MAGENTA}┃${NC}  ${GREEN}[2]${NC} Run Deposit Tests      ${BLUE}📦 Payment flows under fire${NC}               ${MAGENTA}┃${NC}"
+    echo -e "${MAGENTA}┃${NC}  ${YELLOW}[0]${NC} Back to Main Menu      ${CYAN}🏠 Return to control center${NC}               ${MAGENTA}┃${NC}"
+    echo -e "${MAGENTA}┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫${NC}"
+    echo -e "${MAGENTA}┃${NC}  Tip: ${CYAN}Keep an eye on logs, not just the 🎉 green checks.${NC}                 ${MAGENTA}┃${NC}"
+    echo -e "${MAGENTA}┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛${NC}"
+    echo ""
+    echo -n "Please choose an option [0-2]: "
+}
+
 
 install_dependencies() {
     echo -e "${YELLOW}Installing dependencies...${NC}"
@@ -76,12 +94,40 @@ run_smoke_tests() {
     read -p "Press [Enter] to continue..."
 }
 
+run_dep_test_windows() {
+    echo -e "${YELLOW}Running Deposit Method tests...${NC}"
+    npm run test:dep
+    if [ $? -eq 0 ]; then
+        echo -e "${GREEN}Deposit Method tests completed successfully!${NC}"
+    else
+        echo -e "${RED}Some Deposit Method tests failed.${NC}"
+    fi
+    read -p "Press [Enter] to continue..."
+}
+
 open_test_ui() {
     echo -e "${YELLOW}Opening Playwright Test UI...${NC}"
     npx playwright test --ui
     read -p "Press [Enter] to continue..."
 }
 
+
+test_menu_loop() {
+    while true; do
+        show_test_menu
+        read test_choice
+        
+        case $test_choice in
+            1) run_smoke_tests ;;
+            2) run_dep_test_windows ;;
+            0) return ;; # Return to main menu
+            *) 
+                echo -e "${RED}Invalid option. Please try again.${NC}"
+                sleep 2
+                ;;
+        esac
+    done
+}
 
 while true; do
 show_menu
@@ -90,9 +136,9 @@ read choice
 case $choice in
         1) install_dependencies ;;
         2) pull_latest ;;
-        3) run_smoke_tests ;;
+        3) open_test_ui ;;
         4) install_browsers ;;
-        5) open_test_ui ;;
+        5) test_menu_loop ;;
         6) echo -e "${MAGENTA}Exiting...${NC}"; exit 0 ;;
         *) echo -e "${RED}Invalid option. Please try again.${NC}" ;;
     esac

@@ -1,0 +1,89 @@
+{
+  "cookies": [
+    {
+      "name": "token",
+      "value": "43547813d3b82a526c22715b0f418d41",
+      "domain": "tombriches1.com",
+      "path": "/api/",
+      "expires": 1765226807.369794,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.1.236140684.1764622006",
+      "domain": ".tombriches1.com",
+      "path": "/",
+      "expires": 1799182006.11411,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_fbp",
+      "value": "fb.1.1764622006468.575202408479419482",
+      "domain": ".tombriches1.com",
+      "path": "/",
+      "expires": 1772398007,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_cfuvid",
+      "value": "sPWToUp.qC6KTo.eBRP6s3a0p6YwQ8E9qLedeYrho6E-1764622006410-0.0.1.1-604800000",
+      "domain": ".challenges.cloudflare.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_ga_8NVCR9P91P",
+      "value": "GS2.1.s1764622006$o1$g0$t1764622006$j60$l0$h50480524",
+      "domain": ".tombriches1.com",
+      "path": "/",
+      "expires": 1799182006.988808,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://tombriches1.com",
+      "localStorage": [
+        {
+          "name": "wid",
+          "value": "d44i9a5dc6efriqcfol0"
+        },
+        {
+          "name": "lang",
+          "value": "en"
+        },
+        {
+          "name": "lastExternalReferrerTime",
+          "value": "1764622006464"
+        },
+        {
+          "name": "lastExternalReferrer",
+          "value": "empty"
+        },
+        {
+          "name": "ur",
+          "value": "de"
+        },
+        {
+          "name": "intercom.intercom-state-z3x0st3y",
+          "value": "{\"app\":{\"openConfig\":{\"unifiedStyling\":true,\"spaces\":[],\"userHasReceivedChecklists\":false,\"userHasLiveNewsfeed\":false,\"userHasTickets\":false},\"selfServeSuggestionsMatch\":false,\"features\":{\"anonymousInboundMessages\":false,\"googleAnalytics\":false,\"inboundMessages\":false,\"googleAnalytics4Integration\":false},\"isDeveloperWorkspace\":false},\"launcher\":{\"isLauncherEnabled\":true},\"launcherDiscoveryMode\":{\"hasDiscoveredLauncher\":false},\"launcherSettings\":{\"alignment\":\"right\",\"color\":\"#2bb68d\",\"colorDark\":\"#2bb68d\",\"hasRequiredFeatures\":true,\"horizontalPadding\":20,\"instantBootEnabled\":true,\"launcherLogoUrl\":\"https://downloads.intercomcdn.eu/i/o/8081/3952ac122347e4b2784edb4f/62868bcb0ea6a88d122e96c007c30da3.png\",\"launcherLogoDarkUrl\":null,\"secondaryColor\":\"#050000\",\"secondaryColorDark\":\"#050000\",\"showLauncher\":true,\"themeMode\":\"light\",\"updatedAt\":1764547222,\"verticalPadding\":90,\"colorLight\":\"#2bb68d\",\"secondaryColorLight\":\"#050000\",\"launcherLogoLightUrl\":\"https://downloads.intercomcdn.eu/i/o/8081/3952ac122347e4b2784edb4f/62868bcb0ea6a88d122e96c007c30da3.png\",\"isLoading\":false},\"user\":{},\"message\":{},\"conversations\":{\"byId\":{}},\"openOnBoot\":{\"type\":null,\"metadata\":{},\"lastOpenAtTimestamp\":1764622007961},\"operator\":{\"lastComposerEvent\":0},\"router\":{\"isInitialized\":false,\"navigationQueue\":[]}}"
+        },
+        {
+          "name": "tib",
+          "value": "{\"d44i9a0pj5fgsg7skqeg\":[]}"
+        }
+      ]
+    }
+  ]
+}
