@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import 'dotenv/config';
 
 export default defineConfig({
   testDir: './tests',
@@ -16,7 +17,7 @@ export default defineConfig({
     [
       'playwright-qase-reporter',
       {
-        debug: true,
+        // debug: true,
         mode: 'testops',
         logging: true,
         testops: {

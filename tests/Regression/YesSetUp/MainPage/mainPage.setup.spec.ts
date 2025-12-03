@@ -94,10 +94,10 @@ test.describe('Main Page', () => {
       await tombRiches.mainPage.promoBlock.takeItButton.first().click();
     });
     await expect(tombRiches.page.url()).toBe(`${await tombRiches.getUrl('cashboxPageDeposit')}`);
-    await expect(tombRiches.CashboxPage.creditCards).toBeVisible();
-    await expect(tombRiches.CashboxPage.applePay).toBeVisible();
-    await expect(tombRiches.CashboxPage.googlePay).toBeVisible();
-    await expect(tombRiches.CashboxPage.cryptoDeposit).toBeVisible();
+    await expect(tombRiches.CashboxPage.creditCards('de')).toBeVisible();
+    await expect(tombRiches.CashboxPage.applePay('de')).toBeVisible();
+    await expect(tombRiches.CashboxPage.googlePay('de')).toBeVisible();
+    await expect(tombRiches.CashboxPage.cryptoDeposit('de')).toBeVisible();
   });
 
   test('Promo card check the details buttons', { tag: '@smoke' }, async ({ tombRiches }) => {

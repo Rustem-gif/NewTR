@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import 'dotenv/config';
 
 const generateCustomLayoutAsync = async (): Promise<Record<string, unknown>> => {
   // Add your custom layout logic here

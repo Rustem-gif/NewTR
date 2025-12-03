@@ -21,9 +21,9 @@ test.describe('Cashbox', async () => {
 
   test('Verify Cashier Tabs', { tag: '@smoke' }, async ({ tombRiches }) => {
     qase.comment('Verifying visibility of cashier payment tabs');
-    await expect(tombRiches.CashboxPage.creditCards).toBeVisible();
-    await expect(tombRiches.CashboxPage.applePay).toBeVisible();
-    await expect(tombRiches.CashboxPage.googlePay).toBeVisible();
-    await expect(tombRiches.CashboxPage.cryptoDeposit).toBeVisible();
+    await expect(tombRiches.CashboxPage.creditCards('de')).toBeVisible();
+    await expect(tombRiches.CashboxPage.applePay('de')).toBeVisible();
+    await expect(tombRiches.CashboxPage.googlePay('de')).toBeVisible();
+    await expect(tombRiches.CashboxPage.cryptoDeposit('de')).toBeVisible();
   });
 });

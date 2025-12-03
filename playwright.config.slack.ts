@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import generateCustomLayoutAsync from './my_custom_layout';
+import 'dotenv/config';
 
 export default defineConfig({
   testDir: './tests',
@@ -18,7 +19,7 @@ export default defineConfig({
       './node_modules/playwright-slack-report/dist/src/SlackReporter.js',
       {
         slackOAuthToken: process.env.SLACK_BOT_USER_OAUTH_TOKEN,
-        channels: ['test-reporter', 'kb-payment'],
+        channels: ['test-reporter', 'tr-payment'],
         sendResults: 'always',
         layoutAsync: generateCustomLayoutAsync,
         showInThread: true,

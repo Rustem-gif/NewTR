@@ -3,6 +3,7 @@ import { SummaryResults } from 'playwright-slack-report/dist/src';
 import { WebClient } from '@slack/web-api';
 import fs from 'fs';
 import { DEPOSIT_TEST_OBJECTS } from './src/Data/DepositPageTestData/depositTestObjects';
+import 'dotenv/config';
 
 // Outstanding Block Kit layout for Playwright results
 export default async function generateCustomLayoutAsync(
