@@ -1,14 +1,32 @@
 import { exec } from 'child_process';
 import { promisify } from 'util';
-import { setTimeout } from 'timers/promises';
 import type { IVpnController } from './vpnControllerFactory';
 
 const execAsync = promisify(exec);
 
 export class VpnControllerMac implements IVpnController {
-  private expressvpnPath = '/Applications/ExpressVPN.app/Contents/MacOS/expressvpncli';
-
   constructor() {}
+
+  private runVPN(command: string): Promise<string> {
+    return new Promise((resolve, reject) => {
+      exec(command, (error, stdout, stderr) => {
+        if (error) {
+          console.error(`Error executing command: ${error.message}`);
+          reject(error.message);
+          return;
+        }
+
+        if (stderr) {
+          console.error(`Error: ${stderr}`);
+          reject(stderr);
+          return;
+        }
+
+        console.log(`Output: ${stdout}`);
+        resolve(stdout);
+      });
+    });
+  }
 
   /**
    * Connect to a specific VPN location
@@ -17,14 +35,8 @@ export class VpnControllerMac implements IVpnController {
   async vpnConnect(location: string): Promise<void> {
     try {
       console.log(`Connecting to VPN location: ${location}`);
-      const command = `"${this.expressvpnPath}" connect "${location}"`;
-      const { stdout, stderr } = await execAsync(command);
-
-      if (stderr && !stderr.includes('Connected to')) {
-        throw new Error(`VPN connection failed: ${stderr}`);
-      }
-
-      console.log(`VPN connected successfully: ${stdout}`);
+      await this.runVPN(`expresso connect "${location}"`);
+      console.log(`VPN connected successfully`);
     } catch (error) {
       console.error(`Failed to connect VPN: ${error}`);
       throw error;
@@ -37,14 +49,8 @@ export class VpnControllerMac implements IVpnController {
   async vpnDisconnect(): Promise<void> {
     try {
       console.log('Disconnecting VPN...');
-      const command = `"${this.expressvpnPath}" disconnect`;
-      const { stdout, stderr } = await execAsync(command);
-
-      if (stderr && !stderr.includes('Disconnected')) {
-        console.warn(`VPN disconnect warning: ${stderr}`);
-      }
-
-      console.log(`VPN disconnected: ${stdout}`);
+      await this.runVPN('expresso disconnect');
+      console.log(`VPN disconnected`);
     } catch (error) {
       console.error(`Failed to disconnect VPN: ${error}`);
       // Don't throw error for disconnect failures as it's cleanup
@@ -57,21 +63,8 @@ export class VpnControllerMac implements IVpnController {
    */
   async vpnCheckStatus(): Promise<string> {
     try {
-      const command = `"${this.expressvpnPath}" status`;
-      const { stdout, stderr } = await execAsync(command);
-
-      if (stderr) {
-        console.warn(`VPN status check warning: ${stderr}`);
-      }
-
-      // Parse status from output
-      if (stdout.toLowerCase().includes('connected')) {
-        return 'connected';
-      } else if (stdout.toLowerCase().includes('disconnected')) {
-        return 'disconnected';
-      } else {
-        return 'unknown';
-      }
+      const status = await this.runVPN('expresso status');
+      return status.trim();
     } catch (error) {
       console.error(`Failed to check VPN status: ${error}`);
       return 'error';
@@ -84,15 +77,8 @@ export class VpnControllerMac implements IVpnController {
    */
   async vpnListLocations(): Promise<string[]> {
     try {
-      const command = `"${this.expressvpnPath}" list`;
-      const { stdout, stderr } = await execAsync(command);
-
-      if (stderr) {
-        console.warn(`VPN list locations warning: ${stderr}`);
-      }
-
-      // Parse locations from output (this will depend on ExpressVPN output format)
-      const locations = stdout
+      const output = await this.runVPN('expresso list');
+      const locations = output
         .split('\n')
         .filter(line => line.trim().length > 0)
         .map(line => line.trim());
@@ -108,10 +94,6 @@ export class VpnControllerMac implements IVpnController {
    * Sleep/wait function for VPN operations
    * @param ms - Milliseconds to wait
    */
-  async sleepVPN(ms: number): Promise<void> {
-    await setTimeout(ms);
-  }
-
   /**
    * Get current IP address (useful for verifying VPN connection)
    * @returns Promise<string> - Current public IP address

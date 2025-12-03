@@ -1,5 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const generateCustomLayoutAsync = async (): Promise<Record<string, unknown>> => {
+  // Add your custom layout logic here
+  return {};
+};
+
 export default defineConfig({
   testDir: './tests',
 
@@ -40,7 +45,7 @@ export default defineConfig({
         slackOAuthToken: process.env.SLACK_BOT_USER_OAUTH_TOKEN,
         channels: ['test-reporter', 'kb-payment'],
         sendResults: 'always',
-        // layoutAsync: generateCustomLayoutAsync,
+        layoutAsync: generateCustomLayoutAsync,
         showInThread: true,
         sendCustomBlocksInThreadAfterIndex: 3, // Only first 3 blocks in main message, rest in thread
       },

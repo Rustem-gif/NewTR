@@ -9,7 +9,6 @@ export interface IVpnController {
   vpnDisconnect(): Promise<void>;
   vpnCheckStatus(): Promise<string>;
   vpnListLocations(): Promise<string[]>;
-  sleepVPN(ms: number): Promise<void>;
   getCurrentIP(): Promise<string>;
   verifyVPNConnection(originalIP: string): Promise<boolean>;
 }

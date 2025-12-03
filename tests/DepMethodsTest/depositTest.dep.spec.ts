@@ -1,19 +1,19 @@
 import { test, expect } from '../../src/fixtures/testFixture';
 import { DEPOSIT_TEST_OBJECTS } from '../../src/Data/DepositPageTestData/depositTestObjects';
-import { VpnController } from '../../src/helpers/vpnController';
+import { getVpnController, type IVpnController } from '../../src/helpers/vpnControllerFactory';
 import { type Locator } from '@playwright/test';
 
 for (const countryCode of Object.keys(DEPOSIT_TEST_OBJECTS)) {
   test.describe('Deposit Methods Test Suite', { tag: '@depMethods' }, () => {
-    let vpnController: VpnController;
+    let vpnController: IVpnController;
 
     test.beforeAll(() => {
-      vpnController = new VpnController();
+      vpnController = getVpnController();
     });
 
-    test.beforeEach(async () => {
+    test.beforeEach(async ({ tombRiches }) => {
       await vpnController.vpnConnect(DEPOSIT_TEST_OBJECTS[countryCode]?.location || '');
-      await vpnController.sleepVPN(5000);
+      await tombRiches.page.waitForTimeout(5000);
     });
 
     test.afterEach(async () => {
@@ -41,10 +41,12 @@ for (const countryCode of Object.keys(DEPOSIT_TEST_OBJECTS)) {
         tombRiches.cashboxPage.cryptoDeposit(location),
       ];
 
-      if (countryCode === 'NL' || countryCode === 'DE' || countryCode === 'AT') {
+      const isSofortSupported = ['NL', 'DE', 'AT'].includes(countryCode);
+      if (isSofortSupported) {
         expectedMethods.push(tombRiches.cashboxPage.sofortDeposit(location));
       }
-      if (countryCode === 'AT') {
+      const isEpsSupported = countryCode === 'AT';
+      if (isEpsSupported) {
         expectedMethods.push(tombRiches.cashboxPage.epsBanking(location));
       }
 
