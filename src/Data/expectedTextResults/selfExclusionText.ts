@@ -68,5 +68,4 @@ Record the exclusion in its internal register
 5.1. SUVYD B.V. is licensed by the Curaçao Gaming Control Board. At this time, there is no centralized self-exclusion platform provided by the licensing authority.
 5.2. All self-exclusion requests must be processed directly via tombriches1.com. Clients who wish to raise additional concerns may contact the Curaçao Gaming Control Board, but technical enforcement of self-exclusion remains under SUVYD B.V.'s responsibility.
 Contact Information:
-Email: support@tombriches1.comWebsite: www.tombriches1.com
-`;
+Email: support@tombriches1.comWebsite: www.tombriches1.com`;

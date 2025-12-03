@@ -22,5 +22,9 @@ export default class SignInPage extends BasePage {
     }
     if (password) await this.passwordInput.fill(password);
     await this.signInButton.click();
+
+    console.log(
+      `Filled sign-in form with ${mode} and with email: ${email}, password: ${password}, phone: ${phoneNumber}`
+    );
   }
 }

@@ -17,18 +17,23 @@ export default class CashboxPage extends BasePage {
   readonly historyButton: Locator = this.page
     .locator('#nav-button-payment-history')
     .describe('History button');
-  readonly creditCards: Locator = this.page
-    .locator('#direction-button-cards-de')
-    .describe('Credit cards');
-  readonly applePay: Locator = this.page
-    .locator('#direction-button-applepay-de')
-    .describe('Apple Pay');
-  readonly googlePay: Locator = this.page
-    .locator('#direction-button-googlepay-de')
-    .describe('Google Pay');
-  readonly cryptoDeposit: Locator = this.page
-    .locator('#direction-button-crypto-de')
-    .describe('Crypto deposit');
+  readonly creditCards: (countryCode: string) => Locator = (countryCode = 'de') =>
+    this.page.locator(`#direction-button-cards-${countryCode}`).describe('Credit cards');
+  readonly applePay: (countryCode: string) => Locator = (countryCode = 'de') =>
+    this.page.locator(`#direction-button-applepay-${countryCode}`).describe('Apple Pay');
+  readonly googlePay: (countryCode: string) => Locator = (countryCode = 'de') =>
+    this.page.locator(`#direction-button-googlepay-${countryCode}`).describe('Google Pay');
+  readonly cryptoDeposit: (countryCode: string) => Locator = (countryCode = 'de') =>
+    this.page.locator(`#direction-button-crypto-${countryCode}`).describe('Crypto deposit');
+  readonly sofortDeposit: (countryCode: string) => Locator = (countryCode = 'de') =>
+    this.page.locator(`#direction-button-sofort-${countryCode}`).describe('Sofort deposit');
+  readonly openBanking: (countryCode: string) => Locator = (countryCode = 'de') =>
+    this.page.locator(`#direction-button-openbanking-${countryCode}`).describe('Open banking');
+  readonly epsBanking: (countryCode: string) => Locator = (countryCode = 'de') =>
+    this.page.locator(`#direction-button-eps-${countryCode}`).describe('EPS banking');
+  readonly depositMethodsContainer: Locator = this.page
+    .locator('.personal-info-card')
+    .describe('Deposit methods container');
 
   async getDepMethodCount(): Promise<number> {
     return this.depMethod.count();
