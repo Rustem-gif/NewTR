@@ -42,4 +42,12 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
   ],
+
+  expect: {
+    toHaveScreenshot: {
+      threshold: 0.3,
+      maxDiffPixelRatio: 0.01,
+      animations: 'disabled',
+    },
+  },
 });
