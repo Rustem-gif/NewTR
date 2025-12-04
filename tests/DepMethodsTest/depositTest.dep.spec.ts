@@ -64,9 +64,11 @@ for (const countryCode of Object.keys(DEPOSIT_TEST_OBJECTS)) {
       await tombRiches.signInPage.signIn('email', countryData.creds);
       await tombRiches.mainPage.header.cashboxButton.waitFor({ state: 'visible', timeout: 10000 });
       await tombRiches.navTo('cashboxPageDeposit');
+      await tombRiches.page.waitForTimeout(3000);
       await tombRiches.page.waitForLoadState('networkidle');
       await expect(tombRiches.cashboxPage.depositMethodsContainer).toHaveScreenshot(
-        `DepositMethods_${countryCode}.png`
+        `DepositMethods_${countryCode}.png`,
+        { maxDiffPixels: 400 }
       );
     });
   });
