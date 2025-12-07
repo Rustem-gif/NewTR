@@ -32,7 +32,7 @@ export default class CashboxPage extends BasePage {
   readonly epsBanking: (countryCode: string) => Locator = (countryCode = 'de') =>
     this.page.locator(`#direction-button-eps-${countryCode}`).describe('EPS banking');
   readonly depositMethodsContainer: Locator = this.page
-    .locator('.personal-info-card')
+    .locator('.lobby-payment-methods-container')
     .describe('Deposit methods container');
 
   async getDepMethodCount(): Promise<number> {
