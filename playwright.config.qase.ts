@@ -58,5 +58,11 @@ export default defineConfig({
       testMatch: '**/*.nosetup.spec.ts',
       use: { ...devices['Desktop Chrome'] },
     },
+
+    {
+      name: 'healthChecks',
+      testMatch: '**/HealthChecks/*.health.spec.ts',
+      use: { ...devices['Desktop Chrome'] },
+    },
   ],
 });
