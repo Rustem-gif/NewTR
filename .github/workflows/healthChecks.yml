@@ -1,0 +1,48 @@
+name: Health Checks CI
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: 'Deployment target'
+        required: true
+        type: choice
+        options:
+          - Run health checks
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test:health-checks
+
+      - name: send default message
+        if: failure()
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: 'API tests failed. Better check TR!!! '
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: healthcheck
+          path: test_summary.json
+          if-no-files-found: ignore

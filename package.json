@@ -10,8 +10,9 @@
     "test:ui": "playwright test --ui",
     "prepare": "husky",
     "test:smoke": "cross-env TEST_RUN_TITLE=\"TR Smoke\" npx playwright test --config=playwright.config.qase.ts --grep @smoke",
-    "test:dep-win": "cross-env OS_TYPE=windows TEST_RUN_TITLE=\"Deposit Methods\" npx playwright test --config=playwright.config.slack.ts --project=DepMethods --workers=1 --grep @depMethods",
-    "test:dep-mac": "cross-env OS_TYPE=mac TEST_RUN_TITLE=\"Deposit Methods\" npx playwright test --config=playwright.config.slack.ts --project=DepMethods --update-snapshots --workers=1 --grep @depMethods"
+    "test:dep-win": "npx playwright test --config=playwright.config.slack.ts --project=DepMethods --workers=1 --grep @depMethods",
+    "test:dep-mac": "npx playwright test --config=playwright.config.slack.ts --project=DepMethods --workers=1 --grep @depMethods",
+    "test:health-checks": "cross-env OS_TYPE=mac TEST_RUN_TITLE=\"Health Checks\" npx playwright test --workers=4 --config=playwright.config.health.ts --project=healthChecks"
   },
   "keywords": [],
   "author": "",

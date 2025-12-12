@@ -12,8 +12,8 @@ export default defineConfig({
   workers: 3,
 
   reporter: [
-    ['html'],
     ['list'],
+    ['./playwright.reporter.summary.ts'],
     // [
     //   'playwright-qase-reporter',
     //   {
@@ -24,7 +24,7 @@ export default defineConfig({
     //       api: {
     //         token: '2b3e65ab1ee17f1440a13c94b9d1da5429f590fdbcc8d080ddc41268ae50305b',
     //       },
-    //       project: 'AUTOMATION',
+    //       project: 'HC',
     //       uploadAttachments: true,
     //       run: {
     //         complete: true,
@@ -43,22 +43,6 @@ export default defineConfig({
   },
 
   projects: [
-    { name: 'setup', testMatch: '**/setup/*.spec.ts', use: { ...devices['Desktop Chrome'] } },
-    {
-      name: 'YesSetUp',
-      use: {
-        ...devices['Desktop Chrome'],
-        storageState: 'tests/Regression/setup/storageState.json',
-      },
-      testMatch: '**/*.setup.spec.ts',
-      dependencies: ['setup'],
-    },
-    {
-      name: 'NoSetUp',
-      testMatch: '**/*.nosetup.spec.ts',
-      use: { ...devices['Desktop Chrome'] },
-    },
-
     {
       name: 'healthChecks',
       testMatch: '**/HealthChecks/*.health.spec.ts',
