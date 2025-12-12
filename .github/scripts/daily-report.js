@@ -50,7 +50,7 @@ async function downloadArtifactZip(url, destPath) {
 }
 
 async function listWorkflowRuns() {
-  const workflowName = encodeURIComponent('healthChecks.yml');
+  const workflowName = encodeURIComponent('Health Checks CI');
   const runs = await callGitHub(
     `/repos/${repo}/actions/workflows/${workflowName}/runs?per_page=50`
   );
