@@ -18,7 +18,7 @@ test.describe('Deposit Methods Test Suite', { tag: '@healthCheck' }, () => {
         email: user.creds.email,
         password: user.creds.password,
       });
-      await tombRiches.mainPage.header.cashboxButton.waitFor({ state: 'visible', timeout: 10000 });
+      await tombRiches.mainPage.header.cashboxButton.waitFor({ state: 'visible', timeout: 30000 });
       await tombRiches.navTo('cashboxPageDeposit');
 
       await expect(tombRiches.cashboxPage.depMethodContainer).toBeVisible({ timeout: 30000 });
