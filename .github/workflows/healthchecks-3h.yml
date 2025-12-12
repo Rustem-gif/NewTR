@@ -1,0 +1,32 @@
+name: Healthchecks - last 3 hours
+
+on:
+  schedule:
+    - cron: '*/15 * * * *' # every 15 minutes (UTC)
+  workflow_dispatch: # allow manual run from UI too
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read # to list runs & download artifacts
+      contents: read
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # builtin token
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies for reporter
+        run: |
+          npm init -y >/dev/null 2>&1 || true
+          npm install node-fetch@2
+
+      - name: Run healthcheck reporter
+        run: |
+          node .github/scripts/healthcheck-3h-report.js

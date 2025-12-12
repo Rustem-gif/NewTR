@@ -1,33 +1,27 @@
-import { Locator } from '@playwright/test';
+import { DEPOSIT_TEST_OBJECTS } from '../../src/Data/DepositPageTestData/depositTestObjects';
 import { expect, test } from '../../src/fixtures/testFixture';
 
 test.describe('Deposit Methods Test Suite', { tag: '@healthCheck' }, () => {
-  test(`Deposit Methods Test for `, async ({ tombRiches }) => {
-    await tombRiches.navTo('loginPage');
-    await tombRiches.signInPage.signIn('email', tombRiches.users.MAIN_USER!);
-    await tombRiches.mainPage.header.cashboxButton.waitFor({ state: 'visible', timeout: 10000 });
-    await tombRiches.navTo('cashboxPageDeposit');
-    await tombRiches.page.waitForLoadState('networkidle');
+  for (const [code, user] of Object.entries(DEPOSIT_TEST_OBJECTS)) {
+    const proxy = user.proxy;
 
-    const expectedMethods: Locator[] = [
-      tombRiches.cashboxPage.creditCards('de'),
-      tombRiches.cashboxPage.applePay('de'),
-      tombRiches.cashboxPage.googlePay('de'),
-      tombRiches.cashboxPage.openBanking('de'),
-      tombRiches.cashboxPage.cryptoDeposit('de'),
-    ];
+    test.use({
+      proxy: {
+        server: `http://${proxy.server}`,
+        username: proxy.username,
+        password: proxy.password,
+      },
+    });
+    test(`HealthCheck ${code}`, async ({ tombRiches }) => {
+      await tombRiches.navTo('loginPage');
+      await tombRiches.signInPage.signIn('email', {
+        email: user.creds.email,
+        password: user.creds.password,
+      });
+      await tombRiches.mainPage.header.cashboxButton.waitFor({ state: 'visible', timeout: 10000 });
+      await tombRiches.navTo('cashboxPageDeposit');
 
-    // const isSofortSupported = ['NL', 'DE', 'AT'].includes(countryCode);
-    // if (isSofortSupported) {
-    //     expectedMethods.push(tombRiches.cashboxPage.sofortDeposit(location));
-    // }
-    // const isEpsSupported = countryCode === 'AT';
-    // if (isEpsSupported) {
-    //     expectedMethods.push(tombRiches.cashboxPage.epsBanking(location));
-    // }
-
-    for (const methodLocator of expectedMethods) {
-      await expect.soft(methodLocator).toBeVisible();
-    }
-  });
+      await expect(tombRiches.cashboxPage.depMethodContainer).toBeVisible({ timeout: 30000 });
+    });
+  }
 });

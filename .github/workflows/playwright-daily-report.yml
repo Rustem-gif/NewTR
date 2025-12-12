@@ -1,0 +1,32 @@
+name: Playwright Daily Report
+
+on:
+  schedule:
+    - cron: '0 15 * * *' # every day at 15:00 UTC (adjust as needed)
+  workflow_dispatch:
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies for reporter
+        run: |
+          npm init -y >/dev/null 2>&1 || true
+          npm install node-fetch@2
+
+      - name: Run daily reporter
+        run: |
+          node .github/scripts/daily-report.js
