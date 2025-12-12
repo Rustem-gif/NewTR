@@ -46,7 +46,7 @@ async function downloadArtifactZip(url, destPath) {
 
 async function listRecentWorkflowRuns() {
   // limit to the named workflow to avoid noise
-  const workflowName = encodeURIComponent('Playwright Tests');
+  const workflowName = encodeURIComponent('healthChecks.yml');
   const runs = await callGitHub(
     `/repos/${repo}/actions/workflows/${workflowName}/runs?per_page=30`
   );
