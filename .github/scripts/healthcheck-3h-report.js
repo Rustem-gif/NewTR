@@ -1,4 +1,5 @@
 // .github/scripts/healthcheck-3h-report.js
+/* eslint-disable no-console */
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
@@ -82,12 +83,13 @@ async function gatherSummaries() {
       if (!fs.existsSync(summaryPath)) continue;
 
       const content = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
-      // Attach run metadata just in case
+      // Attach run metadata including commit SHA so we can deduplicate retries
       content._workflow_run = {
         id: run.id,
         url: run.html_url,
         status: run.conclusion,
         created_at: run.created_at,
+        head_sha: run.head_sha || (run.head_commit && run.head_commit.sha),
       };
       summaries.push(content);
     } catch (err) {
@@ -95,7 +97,32 @@ async function gatherSummaries() {
     }
   }
 
-  return summaries;
+  // Deduplicate by commit SHA so we don't count failed runs that were later retried and passed
+  const bySha = new Map();
+  for (const s of summaries) {
+    const key =
+      (s._workflow_run && (s._workflow_run.head_sha || s._workflow_run.id)) ||
+      (s._workflow_run && s._workflow_run.id);
+    if (!bySha.has(key)) bySha.set(key, []);
+    bySha.get(key).push(s);
+  }
+
+  const finalSummaries = [];
+  for (const [, group] of bySha) {
+    group.sort(
+      (a, b) =>
+        new Date(b._workflow_run.created_at).getTime() -
+        new Date(a._workflow_run.created_at).getTime()
+    );
+    const passed = group.find(x => x.status === 'passed');
+    if (passed) {
+      finalSummaries.push(passed);
+    } else {
+      finalSummaries.push(group[0]);
+    }
+  }
+
+  return finalSummaries;
 }
 
 function buildSlackPayload(summaries) {
