@@ -46,7 +46,8 @@ jobs:
       - name: Ensure Playwright summary file exists
         run: |
           if [ ! -f test_summary.json ]; then
-            echo '{}' > test_summary.json
+            node .github/scripts/ensure-summary.js
+          fi
 
       - name: Upload Playwright test summary
         uses: actions/upload-artifact@v4
