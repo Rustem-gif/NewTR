@@ -45,7 +45,7 @@ jobs:
           echo "duration=$(jq '.duration_seconds' <<< \"$summary\")" >> "$GITHUB_OUTPUT"
 
       - name: send default message
-        if: always()
+        if: failure()
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
