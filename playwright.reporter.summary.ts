@@ -1,10 +1,11 @@
 // playwright.reporter.summary.ts
-import type { Reporter, FullConfig, Suite, TestCase, TestResult } from '@playwright/test/reporter';
+import type { Reporter, FullConfig, Suite } from '@playwright/test/reporter';
 import { writeFileSync } from 'fs';
 import { resolve } from 'path';
 
 class JsonSummaryReporter implements Reporter {
   private startTime: Date = new Date();
+  private rootSuite?: Suite;
   private total = 0;
   private passed = 0;
   private failed = 0;
@@ -12,18 +13,26 @@ class JsonSummaryReporter implements Reporter {
 
   onBegin(config: FullConfig, suite: Suite) {
     this.startTime = new Date();
+    this.rootSuite = suite;
   }
 
-  onTestEnd(test: TestCase, result: TestResult) {
-    this.total += 1;
-    if (result.status === 'passed') this.passed += 1;
-    else if (result.status === 'skipped') this.skipped += 1;
-    else this.failed += 1;
+  private computeFinalStats() {
+    if (!this.rootSuite) return;
+
+    for (const test of this.rootSuite.allTests()) {
+      this.total += 1;
+      const outcome = test.outcome();
+      if (outcome === 'skipped') this.skipped += 1;
+      else if (outcome === 'expected' || outcome === 'flaky') this.passed += 1;
+      else this.failed += 1;
+    }
   }
 
   async onEnd() {
     const endTime = new Date();
     const durationSeconds = Math.round((endTime.getTime() - this.startTime.getTime()) / 1000);
+
+    this.computeFinalStats();
 
     const summary = {
       suite: 'playwright',
