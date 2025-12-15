@@ -2,7 +2,8 @@ name: Healthchecks - last 3 hours
 
 on:
   schedule:
-    - cron: '*/15 * * * *' # every 15 minutes (UTC)
+    - cron: '0 */3 * * *' # every 3 hours (UTC)
+
   workflow_dispatch: # allow manual run from UI too
 
 jobs:

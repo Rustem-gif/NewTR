@@ -35,13 +35,27 @@ jobs:
       - name: Run tests
         run: npm run test:health-checks
 
+      - name: Read Playwright summary
+        if: failure()
+        id: summary
+        run: |
+          summary=$(cat test_summary.json)
+          echo "total=$(jq '.total_tests' <<< \"$summary\")" >> "$GITHUB_OUTPUT"
+          echo "failed=$(jq '.failed' <<< \"$summary\")" >> "$GITHUB_OUTPUT"
+          echo "duration=$(jq '.duration_seconds' <<< \"$summary\")" >> "$GITHUB_OUTPUT"
+
       - name: send default message
         if: failure()
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: 'API tests failed. Better check TR!!! '
+          message: |
+            ❌ Playwright health checks failed
+            Workflow: ${{ github.workflow }}
+            Run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            Tests: ${{ steps.summary.outputs.failed }} failed / ${{ steps.summary.outputs.total }} total
+            Duration: ${{ steps.summary.outputs.duration }}s
 
       - name: Ensure Playwright summary file exists
         run: |
