@@ -58,15 +58,17 @@ echo ┃      Smoke, regression ^& rituals for bug exorcism 🔥                
 echo ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
 echo ┃  [1] Run Smoke Tests        ⚡ Fast health check                      ┃
 echo ┃  [2] Run Deposit Tests      %BLUE%📦 Payment flows under fire               ┃
+echo ┃  [3] Run Health Checks      🏥 System health monitor                  ┃
 echo ┃  [0] Back to Main Menu      🏠 Return to control center               ┃
 echo ┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
 echo ┃  Tip: Keep an eye on logs, not just the 🎉 green checks.                 ┃
 echo ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 echo.
-set /p test_choice=Please choose an option [0-2]: 
+set /p test_choice=Please choose an option [0-3]: 
 
 if "%test_choice%"=="1" goto run_smoke_tests
 if "%test_choice%"=="2" goto run_dep_tests
+if "%test_choice%"=="3" goto run_health_checks
 if "%test_choice%"=="0" goto main_menu
 
 echo Invalid option. Please try again.
@@ -139,6 +141,20 @@ if %ERRORLEVEL% EQU 0 (
     echo Deposit Method tests completed successfully!
 ) else (
     echo Some Deposit Method tests failed.
+)
+echo.
+pause
+goto test_menu
+
+
+:run_health_checks
+cls
+echo Running Health Checks...
+npm run test:health-checks
+if %ERRORLEVEL% EQU 0 (
+    echo Health checks completed successfully!
+) else (
+    echo Some health checks failed.
 )
 echo.
 pause

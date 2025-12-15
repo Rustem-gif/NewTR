@@ -72,6 +72,7 @@ show_test_menu() {
         echo -e "${MAGENTA}┃${NC}  ${GREEN}[1]${NC} Run Smoke Tests            ${YELLOW}⚡ Fast health check${NC}                  ${MAGENTA}┃${NC}"
         echo -e "${MAGENTA}┃${NC}  ${GREEN}[2]${NC} Run Deposit Tests (Windows) ${BLUE}📦 Payment flows (Win)${NC}              ${MAGENTA}┃${NC}"
         echo -e "${MAGENTA}┃${NC}  ${GREEN}[3]${NC} Run Deposit Tests (Mac)     ${BLUE}📦 Payment flows (Mac)${NC}              ${MAGENTA}┃${NC}"
+        echo -e "${MAGENTA}┃${NC}  ${GREEN}[4]${NC} Run Health Checks          ${CYAN}🏥 System health monitor${NC}             ${MAGENTA}┃${NC}"
         echo -e "${MAGENTA}┃${NC}  ${YELLOW}[0]${NC} Back to Main Menu          ${CYAN}🏠 Return to control center${NC}          ${MAGENTA}┃${NC}"
         echo -e "${MAGENTA}┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫${NC}"
         echo -e "${MAGENTA}┃${NC}  ${CYAN}💡 Tip: Keep an eye on logs, not just the green checks${NC}              ${MAGENTA}┃${NC}"
@@ -84,11 +85,12 @@ show_test_menu() {
         echo -e "  ${GREEN}[1]${NC} Run Smoke Tests            ${YELLOW}⚡${NC}"
         echo -e "  ${GREEN}[2]${NC} Run Deposit Tests (Windows) ${BLUE}📦${NC}"
         echo -e "  ${GREEN}[3]${NC} Run Deposit Tests (Mac)     ${BLUE}📦${NC}"
+        echo -e "  ${GREEN}[4]${NC} Run Health Checks          ${CYAN}🏥${NC}"
         echo -e "  ${YELLOW}[0]${NC} Back to Main Menu          ${CYAN}🏠${NC}"
         echo -e "${MAGENTA}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     fi
     echo ""
-    echo -n "Please choose an option [0-3]: "
+    echo -n "Please choose an option [0-4]: "
 }
 
 
@@ -159,6 +161,17 @@ run_dep_test_mac() {
     read -p "Press [Enter] to continue..."
 }
 
+run_health_checks() {
+    echo -e "${YELLOW}Running Health Checks...${NC}"
+    npm run test:health-checks
+    if [ $? -eq 0 ]; then
+        echo -e "${GREEN}Health checks completed successfully!${NC}"
+    else
+        echo -e "${RED}Some health checks failed.${NC}"
+    fi
+    read -p "Press [Enter] to continue..."
+}
+
 open_test_ui() {
     echo -e "${YELLOW}Opening Playwright Test UI...${NC}"
     npx playwright test --ui
@@ -175,6 +188,7 @@ test_menu_loop() {
             1) run_smoke_tests ;;
             2) run_dep_test_windows ;;
             3) run_dep_test_mac ;;
+            4) run_health_checks ;;
             0) return ;; # Return to main menu
             *) 
                 echo -e "${RED}Invalid option. Please try again.${NC}"
