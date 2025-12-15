@@ -90,6 +90,8 @@ async function gatherSummaries() {
         status: run.conclusion,
         created_at: run.created_at,
         head_sha: run.head_sha || (run.head_commit && run.head_commit.sha),
+        event: run.event,
+        run_attempt: run.run_attempt,
       };
       summaries.push(content);
     } catch (err) {
@@ -97,12 +99,20 @@ async function gatherSummaries() {
     }
   }
 
-  // Deduplicate by commit SHA so we don't count failed runs that were later retried and passed
+  // Deduplicate by commit SHA for push/PR events, but keep schedule/manual runs unique
   const bySha = new Map();
   for (const s of summaries) {
-    const key =
-      (s._workflow_run && (s._workflow_run.head_sha || s._workflow_run.id)) ||
-      (s._workflow_run && s._workflow_run.id);
+    const key = (() => {
+      const meta = s._workflow_run;
+      if (!meta) return `unknown-${Math.random()}`;
+      const sha = meta.head_sha || meta.id;
+      const event = meta.event || 'unknown';
+      // Schedule/manual runs can execute multiple times on the same commit, so we
+      // key them by workflow run id to count every execution. Push/PR events keep
+      // the old behavior to avoid double-counting reruns of the same commit.
+      const shouldDedupBySha = event === 'push' || event === 'pull_request';
+      return shouldDedupBySha ? `sha:${sha}` : `run:${meta.id}`;
+    })();
     if (!bySha.has(key)) bySha.set(key, []);
     bySha.get(key).push(s);
   }
